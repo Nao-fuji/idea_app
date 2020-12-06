@@ -1,0 +1,56 @@
+<%= render "shared/header"%>
+<div class="main">
+
+  <div class="nav-contents">
+    <form class="search-form" action="#">
+      <input class='input-box' placeholder='キーワードから探す'>
+      <button class="search-button">
+        検索<%# <%= image_tag "search.png", class:"search-icon" %>
+      </button>
+    </form>
+  </div>
+  <div class="idea-contents">
+    <div class="top-content">
+      <div class="new-post-btn">
+        <a href="/ideas/new">新しいアイデアを投稿</a>
+      </div>
+    </div>
+    <div class="post-area">
+      <div class="post">
+        <div class="head-post">
+          <div class= "user-icon"></div>
+          <div><%=link_to "nickname", "#" ,class:"user-nickname" %></div>
+          <div class="created-date">date</div>
+        </div>
+        <div class="body-post">
+          <div><%= link_to "hogehoge", "#", class: "idea"%></div>
+        </div>
+        <div class="foot-post">
+          <div class="price">price</div>
+          <div class="category">category</div>
+        </div>
+      </div>
+  </div>
+  <div class="recruits-contents">
+  <div class="top-content">
+      <div class="new-post-btn">
+        <a href="/recruits/new">新しいアイデアを募集</a>
+      </div>
+    </div>
+    <div class="post-area">
+      <div class="post">
+        <div class="head-post">
+          <div class= "user-icon"></div>
+          <div><%=link_to "nickname", "#" ,class:"user-nickname" %></div>
+          <div class="created-date">date</div>
+        </div>
+        <div class="body-post">
+          <div><%= link_to "hogehoge", "#", class: "idea"%></div>
+        </div>
+        <div class="foot-post">
+          <div class="category">category</div>
+        </div>
+  </div>
+</div>
+
+<%= render "shared/footer"%>

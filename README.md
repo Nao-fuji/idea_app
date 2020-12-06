@@ -76,11 +76,13 @@
 
 ## recruits テーブル
 
-| Column         | Type       | Options                  |
-| -------- | ---------- | ------------------------------ |
-| theme    | string     | null: false                    |
-| price    | integer    | null: false                    |
-| user     | references | null: false, foreign_key: true |
+| Column      | Type       | Options                        |
+| ----------- | ---------- | ------------------------------ |
+| theme       | string     | null: false                    |
+| price       | string     | null: false                    |
+| category_id | integer    | null: false                    |
+| other       | text       |                                |
+| user        | references | null: false, foreign_key: true |
 
 
 ### Association
@@ -97,7 +99,6 @@
 | idea                | string     | null: false                    |
 | explain             | text       | null: false                    |
 | other               | text       |                                |
-| category_id         | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 
 
