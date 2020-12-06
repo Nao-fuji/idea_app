@@ -27,7 +27,7 @@
 | first_name         | string  | null: false |
 | last_name_kana     | string  | null: false |
 | first_name_kana    | string  | null: false |
-| phone_number       | integer | null: false |
+| phone_number       | string  | null: false |
 
 
 ### Association
@@ -48,7 +48,7 @@
 | idea                | string     | null: false                    |
 | price               | integer    | null: false                    |
 | category_id         | integer    | null: false                    |
-| other               | string     |                                |
+| other               | text       |                                |
 | user                | references | null: false, foreign_key: true |
 
 
@@ -95,8 +95,8 @@
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
 | idea                | string     | null: false                    |
-| explain             | string     | null: false                    |
-| other               | string     |                                |
+| explain             | text       | null: false                    |
+| other               | text       |                                |
 | category_id         | integer    | null: false                    |
 | user                | references | null: false, foreign_key: true |
 

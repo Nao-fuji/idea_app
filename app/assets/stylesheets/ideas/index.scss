@@ -1,0 +1,80 @@
+.main {
+  background-color: #f8f8f8;
+}
+
+.idea-contents{
+  width: 100vw;
+  background-color: red;
+}
+
+.top-content{
+  width: 80vw;
+  height: 5vh;
+  margin: auto;
+  background-color: burlywood;
+}
+
+.post-area{
+  width: 80vw;
+  height: 60vh;
+  background-color: aqua;
+  margin: auto;
+}
+
+.post{
+  width: 40vw;
+  height: 15vh;
+  margin: 1vh 0;
+  background-color: azure;
+}
+
+.head-post{
+  width: 40vw;
+  height: 5vh;
+  background-color: blue;
+  display: flex;
+  align-items: center;
+}
+
+.user-icon{
+  width: 40px;
+  height: 40px;
+  margin: 0vh 3vw;
+  background-color: blueviolet;
+}
+
+.user-nickname{
+  font-size: 20px;
+  text-decoration: none;
+}
+
+.created-date{
+  margin-left: 12vw;
+}
+
+.body-post{
+  width: 40vw;
+  height: 6vh;
+  border-bottom: solid 1px lightgray;
+  text-align: center;
+  background-color: cadetblue;
+}
+
+.idea{
+  width: 20vw;
+  font-size: 30px;
+  text-decoration: none;
+  background-color: burlywood;
+  margin: auto;
+}
+
+.foot-post{
+  width: 40vw;
+  height: 4vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+.price{
+  font-size: 20px;
+}
