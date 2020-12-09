@@ -1,0 +1,56 @@
+<%= render "shared/header" %>
+
+  <%# アイデアの概要 %>
+<div class="idea-show">
+  <div class="idea-box">
+    <h2 class="title">
+      <%= @idea.title %>
+    </h2>
+    <%# <div class='item-img-content'> %>
+      <%# <%= image_tag  ,class:"item-box-img" %>
+    <%# </div> %>
+    <div class="idea-idea-box">
+        <span>アイデアの内容</span>
+        <span><%= @idea.idea%></span>
+    </div>
+    <div class="idea-other-box">
+      <span>その他</span>
+      <span><%= @idea.other %></span>
+    </div>
+    <div class="idea-price-box">
+      <span>アイデアの価格</span>
+      <span>¥<%= @idea.price %></span>
+    </div>
+    <div class="idea-nickname-box">
+      <span>募集者</span>
+      <span><%= @idea.user.nickname %></span>
+    </div>
+    <div class="idea-category-box">
+      <span>カテゴリー</span>
+      <span><%= @idea.category.name %></span>
+    </div>
+    <%# /アイデアの概要 %>
+
+    <%# /編集・削除 %>
+    <%# if user_signed_in? %>
+      <%# if current_user.id == @recruit.user_id && @recruit.purchase.blank? %>
+        <%#= link_to '商品の編集', edit_recruit_path(@recruit.id), class: "recriit-red-btn"%>
+        <%# <p class='or-text'>or</p> %>
+        <%#= link_to '削除', recruit_path(@recruit.id), method: :delete, class:'recruit-destroy' %>
+      <%# end %>
+    <%# end %>
+    <%# /編集・削除 %>
+
+    <div class="option">
+      <div class="favorite-btn">
+        <%#= image_tag "#" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
+        <span>お気に入り 0</span>
+      </div>
+      <div class="report-btn">
+        <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <span>不適切なアイデア募集の通報</span>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
