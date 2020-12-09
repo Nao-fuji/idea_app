@@ -15,6 +15,8 @@ class RecruitsController < ApplicationController
   end
 
   def show
+    @tweet = Tweet.new
+    @tweets = @recruit.tweets.includes(:user)
   end
 
   def edit

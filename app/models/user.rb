@@ -19,4 +19,5 @@ class User < ApplicationRecord
 
   has_many :ideas
   has_many :recruits
+  has_many :tweets
 end
