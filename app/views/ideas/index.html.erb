@@ -15,9 +15,7 @@
   <%# アイデア投稿 %>
   <div class="idea-contents">
     <div class="top-content">
-      <div class="new-post-btn">
-        <a href="/ideas/new">新しいアイデアを投稿</a>
-      </div>
+      <div><%= link_to "新しいアイデアを投稿", new_idea_path, class:"new-post-btn"%></div>
     </div>
     <div class="post-area">
      <%# 投稿あり %>
@@ -66,9 +64,7 @@
   <%# アイデア募集 %>
   <div class="recrits-contents">
     <div class="top-content">
-      <div class="new-post-btn">
-        <a href="/ideas/new">新しいアイデアを募集</a>
-      </div>
+      <div><%= link_to "新しいアイデアを募集", new_recruit_path, class:"new-post-btn"%></div>
     </div>
     <div class="post-area">
       <%# 投稿あり %>

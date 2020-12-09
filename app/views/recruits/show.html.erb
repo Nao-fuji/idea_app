@@ -47,22 +47,75 @@
         <span>不適切なアイデア募集の通報</span>
       </div>
     </div>
+  </div>
 
-    <%# /アイデア投稿 %>
-    <div class="comment-box">
-    <form>
-      <textarea class="comment-text"></textarea>
-      <p class="comment-warn">
-        相手のことを考え丁寧なコメントを心がけましょう。
-        <br>
-        不快な言葉遣いなどは利用制限や退会処分となることがあります。
-      </p>
-      <button type="submit" class="comment-btn">
-        <%#= image_tag "comment.png" ,class:"comment-flag-icon" ,width:"20",height:"25"%>
-        <span>投稿する<span>
-      </button>
-    </form>
-    <%# /アイデア投稿 %>
+  <%# /アイデア投稿 %>
+  <div class="tweet-box">
+    <h2 class="ideas-sell-title">アイデアの情報を入力</h2>
+      <% if current_user %>
+        <%= form_with model: [@recruit, @tweet], local: true do |f| %>
+
+        <%= render 'shared/error_messages', model: f.object %>
+        
+        <div class="new-ideas">
+          <div class="weight-bold-text">
+            アイデア
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :idea, placeholder: "コメントする", rows: "2" %>
+          <div class="weight-bold-text">
+            アイデアの説明
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :explain, placeholder: "コメントする", rows: "2" %>
+          <div class="weight-bold-text">
+            その他
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :other, placeholder: "コメントする", rows: "2" %>
+          <div class="img-upload">
+            <div class="weight-bold-text">
+              関連画像(関連する画像があれば添付してください)
+            </div>
+            <div class="click-upload">
+              <p>
+                クリックしてファイルをアップロード
+              </p>
+              <%= f.file_field :image, id:"idea-image" %>
+              <div id="image-list", class= "preview-image"></div>
+            </div>
+          </div>
+        </div>
+        <div class="sell-btn-contents">
+          <%= f.submit "投稿する" ,class:"sell-btn" %>
+        </div>
+        <% end %>
+      <% else%>
+        <strong><p>※※※アイデアの投稿には新規登録/ログインが必要です※※※</p></strong>
+      <% end %>
+  <%# /アイデア投稿%> 
+
+  <%# /アイデア投稿一覧%> 
+  <div class="tweet-area">
+  <h4>＜アイデア一覧＞</h4>
+    <% if @tweets.present?%>
+      <% @tweets.each do |tweet|%>
+        <div class="tweet">
+          <div class="head-tweet">
+            <div class= "user-icon"></div>
+            <div><%= link_to "#{tweet.user.nickname}","#", class:"user-nickname"%></div>
+            <div class="created-date"><%= tweet.created_at.strftime('%Y/%m/%d')%></div>
+          </div>
+          <div class="body-tweet">
+            <div class="tweet-idea"><%= tweet.idea%></div>
+            <div class="tweet-explain"><%= tweet.explain%></div>
+          </div>
+          <div class="foot-tweet">
+            <div class="tweet-other"><%= tweet.other%></div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
-  </div>
+  <%# /アイデア投稿一覧%> 
 </div>

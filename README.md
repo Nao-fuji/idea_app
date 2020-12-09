@@ -100,6 +100,7 @@
 | explain             | text       | null: false                    |
 | other               | text       |                                |
 | user                | references | null: false, foreign_key: true |
+| recruit             | references | null: false, foreign_key: true |
 
 
 ### Association
