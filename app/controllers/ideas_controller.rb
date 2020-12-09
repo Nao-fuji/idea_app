@@ -2,6 +2,7 @@ class IdeasController < ApplicationController
 
   def index
     @ideas=Idea.order('created_at DESC')
+    @recruits=Recruit.order('created_at DESC')
   end
 
   def new
@@ -15,6 +16,10 @@ class IdeasController < ApplicationController
     else
       render :new  
     end
+  end
+
+  def show
+    @idea=Idea.find(params[:id])
   end
 
   private
