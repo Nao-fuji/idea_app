@@ -1,0 +1,88 @@
+<div class="ideas-sell-contents">
+  <header class="ideas-sell-header">
+    <%# <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
+
+  </header>
+  <div class="ideas-sell-main">
+    <h2 class="ideas-sell-title">アイデアの情報を編集</h2>
+    <%= form_with model:@idea , url:idea_path(@idea.id) ,local: true do |f| %>
+
+    <%= render 'shared/error_messages', model: f.object %>
+
+    <%# アイデア名とアイデア内容、画像 %>
+    <div class="new-ideas">
+      <div class="weight-bold-text">
+        アイデア名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :title, class:"idea-title", id:"idea-title", placeholder:"アイデア名（必須 8文字まで)", maxlength:"8" %>
+      <div class="weight-bold-text">
+        アイデアの内容
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :idea, class:"ideas", id:"idea", placeholder:"アイデアの内容" %>
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          関連画像(関連する画像があれば添付してください)
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :image, id:"idea-image" %>
+          <div id="image-list", class= "preview-image"></div>
+        </div>
+      </div>
+      <div class="ideas-explain">
+        <div class="weight-bold-text">
+          その他
+        </div>
+        <%= f.text_area :other, class:"idea-other", id:"idea-other", placeholder:"" %>
+      </div>
+    </div>
+    <%# /商品名と商品説明 %>
+
+    <%# 商品の詳細 %>
+    <div class="items-detail">
+      <div class="weight-bold-text"></div>
+      <div class="form">
+        <div class="weight-bold-text">
+          カテゴリー
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"idea-category"}) %>
+      </div>
+    </div>
+    <%# /商品の詳細 %>
+
+    <%# 販売価格 %>
+    <div class="sell-price">
+      <div class="weight-bold-text question-text">
+        <span>販売価格<br>(¥1〜500)</span>
+      </div>
+      <div>
+        <div class="price-content">
+          <div class="price-text">
+            <span>価格</span>
+            <span class="indispensable">必須</span>
+          </div>
+          <span class="sell-yen">¥</span>
+          <%= f.text_field :price, class:"price-input", id:"idea-price", placeholder:"例）100" %>
+        </div>
+        </span>
+      </div>
+    </div>
+    <%# /販売価格 %>
+
+    <%# 下部ボタン %>
+    <div class="sell-btn-contents">
+      <%= f.submit "編集する" ,class:"sell-btn" %>
+      <%=link_to 'もどる', idea_path(@idea.id), class:"back-btn" %>
+    </div>
+    <%# /下部ボタン %>
+  </div>
+  <% end %>
+
+  <footer class="items-sell-footer">
+  </footer>
+</div>

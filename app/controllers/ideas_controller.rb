@@ -1,4 +1,5 @@
 class IdeasController < ApplicationController
+  before_action :set_idea, only: [:show, :edit, :update, :destroy]
 
   def index
     @ideas=Idea.order('created_at DESC')
@@ -19,11 +20,31 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @idea=Idea.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @idea.update(idea_params)
+      redirect_to root_path
+    else
+      render :edit 
+    end
+  end
+
+  def destroy
+    @idea.destroy if current_user.id == @idea.user_id 
+    redirect_to root_path
   end
 
   private
   def idea_params
     params.require(:idea).permit(:title, :idea, :price, :category_id, :other).merge(user_id: current_user.id)
   end
+
+  def set_idea
+    @idea=Idea.find(params[:id])
+  end
+
 end
