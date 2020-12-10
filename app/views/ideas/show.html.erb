@@ -3,32 +3,7 @@
   <%# アイデアの概要 %>
 <div class="idea-show">
   <div class="idea-box">
-    <h2 class="title">
-      <%= @idea.title %>
-    </h2>
-    <%# <div class='item-img-content'> %>
-      <%# <%= image_tag  ,class:"item-box-img" %>
-    <%# </div> %>
-    <div class="idea-idea-box">
-        <span>アイデアの内容</span>
-        <span><%= @idea.idea%></span>
-    </div>
-    <div class="idea-other-box">
-      <span>その他</span>
-      <span><%= @idea.other %></span>
-    </div>
-    <div class="idea-price-box">
-      <span>アイデアの価格</span>
-      <span>¥<%= @idea.price %></span>
-    </div>
-    <div class="idea-nickname-box">
-      <span>募集者</span>
-      <span><%= @idea.user.nickname %></span>
-    </div>
-    <div class="idea-category-box">
-      <span>カテゴリー</span>
-      <span><%= @idea.category.name %></span>
-    </div>
+    <%= render partial: "shared/idea", locals: { idea: @idea } %>
     <%# /アイデアの概要 %>
 
     <%# /編集・削除 %>

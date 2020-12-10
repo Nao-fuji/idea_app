@@ -1,0 +1,25 @@
+<%= render "shared/header" %>
+
+<div class="contents row">
+  <p><%= @nickname %>さんの投稿一覧</p>
+  <% @ideas.each do |idea| %>
+    <a href="/ideas/<%= idea.id%>",class="idea-box">
+      <%= render partial: "shared/idea", locals: { idea: idea } %>
+    </a>
+  <% end %>
+
+  <p><%= @nickname %>さんの募集投稿一覧</p>
+  <% @recruits.each do |recruit|%>
+    <a href="/recruits/<%= recruit.id%>",class="recruit-box">
+      <%= render partial: "shared/recruit", locals: { recruit: recruit } %>
+    </a>
+  <% end %>
+
+  <p><%= @nickname %>さんの募集投稿一覧</p>
+  <% @tweets.each do |tweet|%>
+    <a href="/recruits/<%= tweet.recruit_id%>",class="tweet-box">
+      <%= render partial: "shared/tweet", locals: { tweet: tweet } %>
+    </a>
+  <% end %>
+
+</div>

@@ -1,0 +1,22 @@
+<h2 class="theme">
+  <%= recruit.theme %>
+</h2>
+<%# <div class='item-img-content'> %>
+  <%# <%= image_tag  ,class:"item-box-img" %>
+<%# </div> %>
+<div class="recruit-price-box">
+  <span>買取価格の範囲</span>
+  <span>¥<%= recruit.price%></span>
+</div>
+<div class="recruit-other-box">
+  <span>その他</span>
+  <span><%= recruit.other %></span>
+</div>
+<div class="recruit-other-box">
+  <span>募集者</span>
+  <span><%= recruit.user.nickname %></span>
+</div>
+<div class="recruit-other-box">
+  <span>カテゴリー</span>
+  <span><%= recruit.category.name %></span>
+</div>
