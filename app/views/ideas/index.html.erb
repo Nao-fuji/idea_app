@@ -24,7 +24,7 @@
           <div class="post">
             <div class="head-post">
               <div class= "user-icon"></div>
-              <div><%= link_to "#{idea.user.nickname}","#", class:"user-nickname"%></div>
+              <div><%= link_to "#{idea.user.nickname}", "#{user_path(idea.user_id)}", class:"user-nickname"%></div>
               <div class="created-date"><%= idea.created_at.strftime('%Y/%m/%d')%></div>
             </div>
             <div class="body-post">
@@ -73,7 +73,7 @@
           <div class="post">
             <div class="head-post">
               <div class= "user-icon"></div>
-              <div><%= link_to "#{recruit.user.nickname}","#", class:"user-nickname"%></div>
+              <div><%= link_to "#{recruit.user.nickname}","#{user_path(recruit.user_id)}", class:"user-nickname"%></div>
               <div class="created-date"><%= recruit.created_at.strftime('%Y/%m/%d')%></div>
             </div>
             <div class="body-post">
