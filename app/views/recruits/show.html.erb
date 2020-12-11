@@ -49,7 +49,6 @@
           <%= f.text_area :explain, placeholder: "コメントする", rows: "2" %>
           <div class="weight-bold-text">
             その他
-            <span class="indispensable">必須</span>
           </div>
           <%= f.text_area :other, placeholder: "コメントする", rows: "2" %>
           <div class="img-upload">
@@ -81,17 +80,37 @@
       <% @tweets.each do |tweet|%>
         <div class="tweet">
           <div class="head-tweet">
-            <div class= "user-icon"></div>
+            <div class='img-content'>
+              <% if tweet.user.image.present?%>
+                <%= image_tag tweet.user.image ,class:"user-icon" %>
+              <% else %>
+                <%# /ダミー画像 %>
+                <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+              <% end %>
+            </div>
             <div><%= link_to "#{tweet.user.nickname}","#", class:"user-nickname"%></div>
             <div class="created-date"><%= tweet.created_at.strftime('%Y/%m/%d')%></div>
           </div>
           <div class="body-tweet">
             <div class="tweet-idea"><%= tweet.idea%></div>
             <div class="tweet-explain"><%= tweet.explain%></div>
+            <% if tweet.image.present?%>
+              <%= image_tag tweet.image ,class:"item-box-img" %>
+            <% else %>
+              <%# /ダミー画像 %>
+              <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+            <% end %>
           </div>
           <div class="foot-tweet">
             <div class="tweet-other"><%= tweet.other%></div>
           </div>
+              <%# /編集・削除 %>
+          <% if user_signed_in? %>
+            <% if current_user.id == tweet.user_id %>
+              <%= link_to '削除', tweet_path(tweet.id), method: :delete, class:'recruit-destroy' %>
+            <% end %>
+          <% end %>
+             <%# /編集・削除 %>
         </div>
       <% end %>
     <% end %>

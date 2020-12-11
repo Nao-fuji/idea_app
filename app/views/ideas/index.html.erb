@@ -23,7 +23,14 @@
         <% @ideas.each do |idea|%>
           <div class="post">
             <div class="head-post">
-              <div class= "user-icon"></div>
+              <div class='img-content'>
+                <% if idea.user.image.present?%>
+                  <%= image_tag idea.user.image ,class:"user-icon" %>
+                <% else %>
+                  <%# /ダミー画像 %>
+                  <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+                <% end %>
+              </div>
               <div><%= link_to "#{idea.user.nickname}", "#{user_path(idea.user_id)}", class:"user-nickname"%></div>
               <div class="created-date"><%= idea.created_at.strftime('%Y/%m/%d')%></div>
             </div>
@@ -43,7 +50,7 @@
       <% if @ideas.blank?%>
         <div class="post">
           <div class="head-post">
-            <div class= "user-icon"></div>
+            <div class= "user-icon"><%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%></div>
             <div class="user-nickname">hoge太郎</div>
             <div class="created-date">2020/01/01</div>
           </div>
@@ -72,7 +79,14 @@
         <% @recruits.each do |recruit|%>
           <div class="post">
             <div class="head-post">
-              <div class= "user-icon"></div>
+              <div class='img-content'>
+                <% if recruit.user.image.present?%>
+                  <%= image_tag recruit.user.image ,class:"user-icon" %>
+                <% else %>
+                  <%# /ダミー画像 %>
+                  <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+                <% end %>
+              </div>
               <div><%= link_to "#{recruit.user.nickname}","#{user_path(recruit.user_id)}", class:"user-nickname"%></div>
               <div class="created-date"><%= recruit.created_at.strftime('%Y/%m/%d')%></div>
             </div>
