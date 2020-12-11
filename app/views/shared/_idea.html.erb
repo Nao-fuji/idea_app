@@ -1,9 +1,14 @@
 <h2 class="title">
   <%= idea.title %>
 </h2>
-<%# <div class='item-img-content'> %>
-  <%# <%= image_tag  ,class:"item-box-img" %>
-<%# </div> %>
+<div class='item-img-content'>
+  <% if idea.image.present?%>
+    <%= image_tag idea.image ,class:"item-box-img" %>
+  <% else %>
+    <%# /ダミー画像 %>
+    <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+  <% end %>
+</div>
 <div class="idea-idea-box">
     <span>アイデアの内容</span>
     <span><%= idea.idea%></span>

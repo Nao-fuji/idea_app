@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :recruits do
     resources :tweets, only: :create
   end
+  resources :tweets, only: :destroy
 end
