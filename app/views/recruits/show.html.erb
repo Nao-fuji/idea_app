@@ -106,8 +106,12 @@
           </div>
               <%# /編集・削除 %>
           <% if user_signed_in? %>
-            <% if current_user.id == tweet.user_id %>
+            <% if current_user.id == tweet.user_id && tweet.tweet_purchase.blank?%>
               <%= link_to '削除', tweet_path(tweet.id), method: :delete, class:'recruit-destroy' %>
+            <% elsif current_user.id != tweet.user_id && tweet.tweet_purchase.blank? %>
+              <%= link_to '購入画面に進む', recruit_tweet_tweet_purchases_path(@recruit.id,tweet.id) ,class:"tweet-red-btn"%>
+            <%else current_user.id != tweet.user_id && tweet.tweet_purchase.present?%>
+              購入済み
             <% end %>
           <% end %>
              <%# /編集・削除 %>

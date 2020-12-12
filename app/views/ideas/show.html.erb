@@ -3,15 +3,60 @@
   <%# アイデアの概要 %>
 <div class="idea-show">
   <div class="idea-box">
-    <%= render partial: "shared/idea", locals: { idea: @idea } %>
+    <h2 class="title">
+      <%= @idea.title %>
+    </h2>
+    <div class='item-img-content'>
+      <span>関連画像</span>
+      <% if @idea.image.present?%>
+        <% if @idea.idea_purchase.present?%>
+          <%= image_tag @idea.image ,class:"item-box-img" %>
+        <% else %>
+          購入後に見られます
+        <% end %>
+      <% else %>
+        <%# /ダミー画像 %>
+        <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+      <% end %>
+    </div>
+      <div class="idea-idea-box">
+          <span>アイデアの内容</span>
+          <% if @idea.idea_purchase.present?%>
+            <span><%= @idea.idea%></span>
+          <% else %>
+            購入後に見られます
+          <% end %>
+      </div>
+      <div class="idea-other-box">
+        <span>その他</span>
+        <% if @idea.idea_purchase.present?%>
+          <span><%= @idea.other %></span>
+        <% else %>
+          購入後に見られます
+        <% end %>
+      </div>
+    <div class="idea-price-box">
+      <span>アイデアの価格</span>
+      <span>¥<%= @idea.price %></span>
+    </div>
+    <div class="idea-nickname-box">
+      <span>募集者</span>
+      <span><%= @idea.user.nickname %></span>
+    </div>
+    <div class="idea-category-box">
+      <span>カテゴリー</span>
+      <span><%= @idea.category.name %></span>
+    </div>
     <%# /アイデアの概要 %>
 
     <%# /編集・削除 %>
     <% if user_signed_in? %>
-      <% if current_user.id == @idea.user_id %>
+      <% if current_user.id == @idea.user_id && @idea.idea_purchase.blank?%>
         <%= link_to 'アイデアの編集', edit_idea_path(@idea.id), class: "idea-red-btn"%>
         <p class='or-text'>or</p>
         <%= link_to '削除', idea_path(@idea.id), method: :delete, class:'idea-destroy' %>
+      <% elsif current_user.id != @idea.user_id && @idea.idea_purchase.blank?%>
+        <%= link_to '購入画面に進む', idea_idea_purchases_path(@idea.id) ,class:"idea-red-btn"%>
       <% end %>
     <% end %>
     <%# /編集・削除 %>
