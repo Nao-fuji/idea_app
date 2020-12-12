@@ -20,5 +20,7 @@ class User < ApplicationRecord
   has_many :ideas
   has_many :recruits
   has_many :tweets
+  has_many :idea_purchases
+  has_many :tweet_purchases
   has_one_attached :image
 end

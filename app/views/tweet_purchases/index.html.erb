@@ -1,0 +1,96 @@
+<%= render "shared/second-header"%>
+
+<div class='transaction-contents'>
+  <div class='transaction-main'>
+    <h1 class='transaction-title-text'>
+      購入内容の確認
+    </h1>
+    <%# /購入内容の表示 %> 
+    <div class="tweet">
+      <div class="head-tweet">
+        <div class='img-content'>
+          <% if @tweet.user.image.present?%>
+            <%= image_tag @tweet.user.image ,class:"user-icon" %>
+          <% else %>
+            <%# /ダミー画像 %>
+            <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+          <% end %>
+        </div>
+        <div class="user_nickname"><%= @tweet.user.nickname %></div>
+        <div class="created-date"><%= @tweet.created_at.strftime('%Y/%m/%d')%></div>
+      </div>
+      <div class="body-tweet">
+        <div class="tweet-idea"><%= @tweet.idea%></div>
+        <div class="tweet-explain"><%= @tweet.explain%></div>
+        <% if @tweet.image.present?%>
+          <%= image_tag @tweet.image ,class:"item-box-img" %>
+        <% else %>
+          <%# /ダミー画像 %>
+          <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <% end %>
+      </div>
+      <div class="foot-tweet">
+        <div class="tweet-other"><%= @tweet.other%></div>
+      </div>
+    </div>
+    <%# /購入内容の表示 %> 
+
+    <%= form_with model:[@recruit, @tweet, @tweet_purchase] , url:recruit_tweet_tweet_purchases_path,id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <%# カード情報の入力 %>
+    <div class='credit-card-form'>
+      <h1 class='info-input-haedline'>
+        クレジットカード情報入力
+      </h1>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">カード情報</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :number, class:"input-default", id:"card-number", placeholder:"カード番号(半角英数字)", maxlength:"16", name:"tweet_purchase[number]" %>
+        <%# <div class='available-card'> %>
+          <%#= image_tag 'card-visa.gif', class: 'card-logo'%>
+          <%#= image_tag 'card-mastercard.gif', class: 'card-logo'%>
+          <%#= image_tag 'card-jcb.gif', class: 'card-logo'%>
+          <%#= image_tag 'card-amex.gif', class: 'card-logo' %>
+        <%# </div> %>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">有効期限</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <div class='input-expiration-date-wrap'>
+          <%= f.text_area :exp_month, class:"input-expiration-date", id:"card-exp-month", placeholder:"例)3", name:"tweet_purchase[exp_month]" %>
+          <p>月</p>
+          <%= f.text_area :exp_year, class:"input-expiration-date", id:"card-exp-year", placeholder:"例)23", name:"tweet_purchase[exp_year]" %>
+          <p>年</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class='form-text-wrap'>
+          <label class="form-text">セキュリティコード</label>
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_field :cvc,class:"input-default", id:"card-cvc", placeholder:"カード背面4桁もしくは3桁の番号", maxlength:"4", name:"tweet_purchase[cvc]" %>
+      </div>
+    </div>
+    <%# /カード情報の入力 %>
+
+    <div class="price-content">
+      <div class="price-text">
+        <span>買取価格</span>
+        <span class="indispensable">必須</span>
+      </div>
+      <span class="sell-yen">¥</span>
+      <%= f.text_field :price, class:"price-input", id:"item-price", placeholder:"例）300" %>
+    </div>
+  
+    <%# /配送先の入力 %>
+    <div class='buy-btn'>
+      <%= f.submit "購入" ,class:"buy-red-btn" %>
+    </div>
+    <% end %>
+  </div>
+</div>
+<%= render "shared/second-footer"%>
