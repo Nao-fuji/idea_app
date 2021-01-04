@@ -3,7 +3,7 @@
     アイデアを投稿・募集・買取するアプリケーション
     
 ## Usage
-   ![IMG_8718](https://user-images.githubusercontent.com/72326957/103554360-25503e00-4ef2-11eb-9882-94d2d47deafd.JPG)
+   ![image](https://user-images.githubusercontent.com/72326957/103554583-7a8c4f80-4ef2-11eb-9780-12a2f21d757e.png)
 
 
 ## Requirement
