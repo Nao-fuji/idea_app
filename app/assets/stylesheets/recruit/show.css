@@ -1,0 +1,269 @@
+/* アイデア募集の概要 */
+.recruit-show{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.recruit-box{
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.recruit-box>.theme{
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.recruit-info-table{
+  margin: 40px 0;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-top: solid 5px #99FFFF;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.22);
+}
+
+.detail-recruit{
+  width: 25%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 16px;
+  text-align: center;
+}
+
+.detail-value{
+  width: 75%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 20px;
+  word-break : break-all;
+}
+/* アイデア募集の概要 */
+
+/* 募集の編集・削除 */
+.signed-in-btn{
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.recruit-orange-btn {
+  display: block;
+	position: relative;
+	width: 250px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #BBFFFF;
+  border:1px solid #1B1B1B
+}
+
+.recruit-orange-btn:hover {
+  background-color: #77FFFF;
+  color: #1B1B1B;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.recruit-destroy {
+  display: block;
+	position: relative;
+	width: 250px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: lightgray;
+  border:1px solid #1B1B1B
+}
+
+.recruit-destroy:hover {
+  background-color: gray;
+  color: #eee;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.recruit-orange-btn2 {
+  display: block;
+	position: relative;
+	width: 250px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #FFA500;
+  border:1px solid #1B1B1B
+}
+
+.recruit-orange-btn2:hover {
+  background-color: #FF8C00;
+  color: #1B1B1B;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* 募集の編集・削除 */
+
+/* アイデア投稿一覧 */
+.tweet-content{
+  width: 100vw;
+  margin: 70px 0;
+}
+
+.tweet-area{
+  width: 80vw;
+  height: 80vh;
+  overflow: scroll;
+  background-color: #ffffff;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid lightgray;
+}
+
+.tweet{
+  width: 750px;
+  height: 250px;
+  margin: 15px auto;
+  padding: 8px;
+  display: flex;
+  background-color: #ffffff;
+  border-top: solid 5px #FFA500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.22);
+}
+
+.tweet-left{
+  width: 60px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+}
+
+.user-icon{
+  width: 45px;
+  height: 45px;
+}
+
+.tweet-center{
+  height: 250px;
+  width: 340px;
+}
+
+.tweet-head{
+  height: 40px;
+  border-bottom: solid 1px lightgrey;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.user-nickname{
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #1B1B1B;
+}
+
+.created-date{
+  color: #888888;
+}
+
+.tweet-body{
+  height: 140px;
+  overflow: scroll;
+  border-bottom: solid 1px lightgrey;
+}
+
+.tweet-idea{
+  word-wrap: break-word;
+}
+
+.tweet-other{
+  word-wrap: break-word;
+}
+
+.tweet-foot{
+  height: 40px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.tweet-img{
+  height:200px ;
+  width: 300px;
+  object-fit: contain;
+  margin: 10px;
+}
+/* アイデア投稿一覧 */
+
+/* 編集・削除・購入 */
+.tweet-orange-btn {
+  display: block;
+	position: relative;
+  width: 150px;
+  height: 30px;
+	padding: 0.1em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #FFA500;
+  border:1px solid #1B1B1B
+}
+
+.tweet-orange-btn:hover {
+  background-color: #FF8C00;
+  color: #1B1B1B;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tweet-destroy {
+  display: block;
+	position: relative;
+  width: 150px;
+  height: 30px;
+	padding: 0.1em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: lightgray;
+  border:1px solid #1B1B1B
+}
+
+.tweet-destroy:hover {
+  background-color: gray;
+  color: #eee;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.tweet-purchase {
+  display: block;
+	position: relative;
+  width: 150px;
+  height: 30px;
+  padding: 0.1em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #FFA500;
+  border:1px solid #1B1B1B
+}
+
+.tweet-purchase:hover {
+  background-color: #FF8C00;
+  color: #eee;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* 編集・削除・購入 */

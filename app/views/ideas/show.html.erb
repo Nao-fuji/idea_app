@@ -6,70 +6,86 @@
     <h2 class="title">
       <%= @idea.title %>
     </h2>
-    <div class='item-img-content'>
-      <span>関連画像</span>
+
+    <div class="idea-price-box">
+      <div class="idea-price">
+        ¥<%= @idea.price%>
+      </div>
+    </div>
+
+    <div class='idea-img-content'>
       <% if @idea.image.present?%>
-        <% if @idea.idea_purchase.present?%>
-          <%= image_tag @idea.image ,class:"item-box-img" %>
+        <% if @idea.idea_purchase.present? || current_user.id == @idea.user_id %>
+          <%= image_tag @idea.image ,class:"idea-img" %>
         <% else %>
-          購入後に見られます
+          <%= image_tag "idea_image" ,class:"idea-img" %>
         <% end %>
       <% else %>
-        <%# /ダミー画像 %>
-        <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+        <%= image_tag "idea_noimage" ,class:"idea-img" %>
       <% end %>
     </div>
-      <div class="idea-idea-box">
-          <span>アイデアの内容</span>
-          <% if @idea.idea_purchase.present?%>
-            <span><%= @idea.idea%></span>
+
+    <table class="idea-info-table">
+      <tbody>
+        <tr>
+          <th class="detail-idea">アイデアの内容</th>
+          <% if @idea.idea_purchase.present? || current_user.id == @idea.user_id %>
+            <td class="detail-value"><%= @idea.idea %></td>
           <% else %>
-            購入後に見られます
+            <td class="detail-value">購入後に見られます</td>
           <% end %>
-      </div>
-      <div class="idea-other-box">
-        <span>その他</span>
-        <% if @idea.idea_purchase.present?%>
-          <span><%= @idea.other %></span>
-        <% else %>
-          購入後に見られます
-        <% end %>
-      </div>
-    <div class="idea-price-box">
-      <span>アイデアの価格</span>
-      <span>¥<%= @idea.price %></span>
-    </div>
-    <div class="idea-nickname-box">
-      <span>募集者</span>
-      <span><%= @idea.user.nickname %></span>
-    </div>
-    <div class="idea-category-box">
-      <span>カテゴリー</span>
-      <span><%= @idea.category.name %></span>
-    </div>
+        </tr>
+        <tr>
+          <th class="detail-idea">その他</th>
+          <% if @idea.idea_purchase.present? || current_user.id == @idea.user_id %>
+            <td class="detail-value"><%= @idea.other %></td>
+          <% else %>
+            <td class="detail-value">購入後に見られます</td>
+          <% end %>
+        </tr>
+        <tr>
+          <th class="detail-idea">募集者</th>
+          <td class="detail-value"><%= @idea.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-idea">カテゴリー</th>
+          <td class="detail-value"><%= @idea.category.name %></td>
+        </tr>
+      </tbody>
+    </table>
     <%# /アイデアの概要 %>
 
-    <%# /編集・削除 %>
+    <%# /編集・削除・購入ボタン %>
     <% if user_signed_in? %>
       <% if current_user.id == @idea.user_id && @idea.idea_purchase.blank?%>
-        <%= link_to 'アイデアの編集', edit_idea_path(@idea.id), class: "idea-red-btn"%>
-        <p class='or-text'>or</p>
+      <div class="signed-in-btn">
+        <%= link_to 'アイデアの編集', edit_idea_path(@idea.id), class: "idea-orange-btn1"%>
         <%= link_to '削除', idea_path(@idea.id), method: :delete, class:'idea-destroy' %>
+      </div>
       <% elsif current_user.id != @idea.user_id && @idea.idea_purchase.blank?%>
-        <%= link_to '購入画面に進む', idea_idea_purchases_path(@idea.id) ,class:"idea-red-btn"%>
+        <%= link_to '購入画面に進む', idea_idea_purchases_path(@idea.id) ,class:"idea-orange-btn2"%>
+      <% else %>
+        <%= link_to 'トップページに戻る', root_path ,class:"idea-orange-btn2"%>
       <% end %>
     <% end %>
-    <%# /編集・削除 %>
+    <%# /編集・削除・購入ボタン %>
 
+    <%# Good・Badボタン %>
+    <% if @idea.idea_purchase.present?%>
     <div class="option">
       <div class="favorite-btn">
         <%#= image_tag "#" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
+        <span>Good</span>
       </div>
       <div class="report-btn">
         <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切なアイデア募集の通報</span>
+        <span>Bad</span>
       </div>
     </div>
+    <% end %>
+    <%# Good・Badボタン %>
+
   </div>
 </div>
+
+<%= render "shared/footer" %>

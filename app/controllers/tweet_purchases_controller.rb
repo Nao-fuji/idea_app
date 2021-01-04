@@ -7,7 +7,6 @@ class TweetPurchasesController < ApplicationController
     end
   
     def create
-      binding.pry
       @tweet_purchase =TweetPurchase.new(tweet_purchase_params)
       if @tweet_purchase.valid?
         pay_tweet

@@ -1,3 +1,5 @@
+<%= render "shared/second-header" %>
+
 <div class="recruit-contents">
   <header class="recruit-header">
     <%# <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
@@ -9,52 +11,40 @@
 
     <%= render 'shared/error_messages', model: f.object %>
 
-    <%# アイデア名とアイデア内容、画像 %>
+    <%# アイデアのテーマや買取価格範囲 %>
     <div class="new-recruits">
       <div class="weight-bold-text">
         募集するアイデアのテーマ
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :theme, class:"recurit-theme", id:"recruit-theme", placeholder:"「〜のような商品が欲しい」といったアイデアを募集しています" %>
+      <%= f.text_area :theme, class:"recruit-theme", id:"recruit-theme", placeholder:"「〜のような商品が欲しい」といったアイデアを募集しています" %>
       <div class="recruits-other">
         <div class="weight-bold-text">
           その他(必要事項など)
         </div>
-        <%= f.text_area :other, class:"recruit-other", id:"recruit-other", placeholder:"" %>
+        <%= f.text_area :other, class:"recruit-other", id:"recruit-other", placeholder:"そのほかに何かあれば記入してください" %>
       </div>
     </div>
-    <%# /商品名と商品説明 %>
 
-    <%# 商品の詳細 %>
     <div class="recruit-detail">
-      <div class="weight-bold-text"></div>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"idea-category"}) %>
+      <div class="weight-bold-text">
+        カテゴリー
+        <span class="indispensable">必須</span>
       </div>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"idea-category"}) %>
     </div>
-    <%# /商品の詳細 %>
 
-    <%# 販売価格 %>
     <div class="buy-price">
       <div class="weight-bold-text question-text">
+        <span>買取価格の範囲</span>
+        <span class="indispensable">必須</span>
       </div>
-      <div>
-        <div class="price-content">
-          <div class="price-text">
-            <span>買取価格の範囲</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <span class="buy-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"recruit-price", placeholder:"例）10 ~ 200" %>
-        </div>
-        </span>
+      <div class="price-contents">
+        <span class="buy-yen">¥</span>
+        <%= f.text_field :price, class:"price-input", id:"recruit-price", placeholder:"例）50 ~ 200" %>
       </div>
     </div>
-    <%# /販売価格 %>
+    <%# アイデアのテーマや買取価格範囲 %>
 
     <%# 下部ボタン %>
     <div class="recruit-btn-contents">
@@ -64,7 +54,6 @@
     <%# /下部ボタン %>
   </div>
   <% end %>
-
-  <footer class="recruit-footer">
-  </footer>
 </div>
+
+<%= render "shared/footer" %>

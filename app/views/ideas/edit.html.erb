@@ -1,3 +1,5 @@
+<%= render "shared/second-header" %>
+
 <div class="ideas-sell-contents">
   <header class="ideas-sell-header">
     <%# <%= link_to image_tag('furima-logo-color.png' , size: '185x50'), "/" %>
@@ -15,7 +17,7 @@
         アイデア名
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :title, class:"idea-title", id:"idea-title", placeholder:"アイデア名（必須 8文字まで)", maxlength:"8" %>
+      <%= f.text_area :title, class:"idea-title", id:"idea-title", placeholder:"アイデア名（8文字まで)", maxlength:"8" %>
       <div class="weight-bold-text">
         アイデアの内容
         <span class="indispensable">必須</span>
@@ -37,39 +39,29 @@
         <div class="weight-bold-text">
           その他
         </div>
-        <%= f.text_area :other, class:"idea-other", id:"idea-other", placeholder:"" %>
+        <%= f.text_area :other, class:"idea-other", id:"idea-other", placeholder:"そのほかに何かあれば記入してください" %>
       </div>
     </div>
     <%# /商品名と商品説明 %>
 
     <%# 商品の詳細 %>
-    <div class="items-detail">
-      <div class="weight-bold-text"></div>
-      <div class="form">
-        <div class="weight-bold-text">
-          カテゴリー
-          <span class="indispensable">必須</span>
-        </div>
-        <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"idea-category"}) %>
+    <div class="ideas-detail">
+      <div class="weight-bold-text">
+        カテゴリー
+        <span class="indispensable">必須</span>
       </div>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"select-box", id:"idea-category"}) %>
     </div>
     <%# /商品の詳細 %>
 
     <%# 販売価格 %>
     <div class="sell-price">
-      <div class="weight-bold-text question-text">
-        <span>販売価格<br>(¥50〜500)</span>
+      <div class="weight-bold-text">
+        <span>販売価格<span class="indispensable">必須</span><br>(¥50〜500)</span>
       </div>
-      <div>
-        <div class="price-content">
-          <div class="price-text">
-            <span>価格</span>
-            <span class="indispensable">必須</span>
-          </div>
-          <span class="sell-yen">¥</span>
-          <%= f.text_field :price, class:"price-input", id:"idea-price", placeholder:"例）100" %>
-        </div>
-        </span>
+      <div class="price-contents">
+        <span class="sell-yen">¥</span>
+        <%= f.text_field :price, class:"price-input", id:"idea-price", placeholder:"例）100" %>
       </div>
     </div>
     <%# /販売価格 %>
@@ -83,6 +75,6 @@
   </div>
   <% end %>
 
-  <footer class="items-sell-footer">
-  </footer>
 </div>
+
+<%= render "shared/footer" %>

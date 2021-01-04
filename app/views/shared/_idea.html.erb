@@ -1,31 +1,33 @@
-<h2 class="title">
-  <%= idea.title %>
-</h2>
-<div class='item-img-content'>
-  <% if idea.image.present?%>
-    <%= image_tag idea.image ,class:"item-box-img" %>
-  <% else %>
-    <%# /ダミー画像 %>
-    <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-  <% end %>
-</div>
-<div class="idea-idea-box">
-    <span>アイデアの内容</span>
-    <span><%= idea.idea%></span>
-</div>
-<div class="idea-other-box">
-  <span>その他</span>
-  <span><%= idea.other %></span>
-</div>
-<div class="idea-price-box">
-  <span>アイデアの価格</span>
-  <span>¥<%= idea.price %></span>
-</div>
-<div class="idea-nickname-box">
-  <span>募集者</span>
-  <span><%= idea.user.nickname %></span>
-</div>
-<div class="idea-category-box">
-  <span>カテゴリー</span>
-  <span><%= idea.category.name %></span>
+<div class="tweet">
+  <div class="tweet-left">
+    <% if idea.user.image.present?%>
+      <%= image_tag idea.user.image ,class:"user-icon" %>
+    <% else %>
+      <%= image_tag "icon_noimage" ,class:"user-icon"%>
+    <% end %>
+  </div>
+  <div class="tweet-center">
+    <div class="tweet-head">
+      <div class="user-nickname"><%= idea.user.nickname%></div>
+      <div class="created-date"><%= idea.created_at.strftime('%Y/%m/%d')%></div>
+    </div>
+    <div class="tweet-body">
+        <p class="tweet-title"><span style="font-weight:bold;">タイトル：</span><%= idea.title%></p>
+        <p class="tweet-idea"><span style="font-weight:bold;">アイデア：</span><%= idea.idea%></p>
+        <p class="tweet-other"><span style="font-weight:bold;">その他：</span><%= idea.other%></p>
+    </div>
+    <div class="post-foot">
+      <div class="price">¥<%= idea.price%></div>
+      <div class="category"><%= idea.category.name%></div>
+    </div>
+  </div>
+  <div class="tweet-right">
+    <div class='idea-img-content'>
+      <% if idea.image.present?%>
+          <%= image_tag idea.image ,class:"tweet-img" %>
+      <% else %>
+        <%= image_tag "idea_noimage" ,class:"tweet-img" %>
+      <% end %>
+    </div>
+  </div>
 </div>

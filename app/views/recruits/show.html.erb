@@ -3,121 +3,98 @@
   <%# アイデア募集の概要 %>
 <div class="recruit-show">
   <div class="recruit-box">
-    <%= render partial: "shared/recruit", locals: { recruit: @recruit } %>
+    <h2 class="theme">
+      <%= @recruit.theme %>
+    </h2>
+
+    <table class="recruit-info-table">
+      <tbody>
+        <tr>
+          <th class="detail-recruit">買取価格の範囲</th>
+          <td class="detail-value">¥<%= @recruit.price %></td>
+        </tr>
+        <tr>
+          <th class="detail-recruit">その他</th>
+          <td class="detail-value"><%= @recruit.other %></td>
+        </tr>
+        <tr>
+          <th class="detail-recruit">募集者</th>
+          <td class="detail-value"><%= @recruit.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="detail-recruit">カテゴリー</th>
+          <td class="detail-value"><%= @recruit.category.name %></td>
+        </tr>
+      </tbody>
+    </table>
     <%# /アイデア募集の概要 %>
 
     <%# /編集・削除 %>
     <% if user_signed_in? %>
       <% if current_user.id == @recruit.user_id %>
-        <%= link_to '募集内容の編集', edit_recruit_path(@recruit.id), class: "recruit-red-btn"%>
-        <p class='or-text'>or</p>
+      <div class="signed-in-btn">
+        <%= link_to '募集内容の編集', edit_recruit_path(@recruit.id), class: "recruit-orange-btn"%>
         <%= link_to '削除', recruit_path(@recruit.id), method: :delete, class:'recruit-destroy' %>
+      </div>
+      <% else current_user.id != @recruit.user_id %>
+        <%= link_to 'アイデアを投稿する', new_recruit_tweet_path(@recruit.id) ,class:"recruit-orange-btn2"%>
       <% end %>
     <% end %>
     <%# /編集・削除 %>
 
-    <div class="option">
-      <div class="favorite-btn">
-        <%#= image_tag "#" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>お気に入り 0</span>
-      </div>
-      <div class="report-btn">
-        <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>不適切なアイデア募集の通報</span>
-      </div>
-    </div>
-  </div>
 
-  <%# /アイデア投稿 %>
-  <div class="tweet-box">
-    <h2 class="ideas-sell-title">アイデアの情報を入力</h2>
-      <% if current_user %>
-        <%= form_with model: [@recruit, @tweet], local: true do |f| %>
-
-        <%= render 'shared/error_messages', model: f.object %>
-        
-        <div class="new-ideas">
-          <div class="weight-bold-text">
-            アイデア
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_area :idea, placeholder: "コメントする", rows: "2" %>
-          <div class="weight-bold-text">
-            アイデアの説明
-            <span class="indispensable">必須</span>
-          </div>
-          <%= f.text_area :explain, placeholder: "コメントする", rows: "2" %>
-          <div class="weight-bold-text">
-            その他
-          </div>
-          <%= f.text_area :other, placeholder: "コメントする", rows: "2" %>
-          <div class="img-upload">
-            <div class="weight-bold-text">
-              関連画像(関連する画像があれば添付してください)
-            </div>
-            <div class="click-upload">
-              <p>
-                クリックしてファイルをアップロード
-              </p>
-              <%= f.file_field :image, id:"idea-image" %>
-              <div id="image-list", class= "preview-image"></div>
-            </div>
-          </div>
-        </div>
-        <div class="sell-btn-contents">
-          <%= f.submit "投稿する" ,class:"sell-btn" %>
-        </div>
-        <% end %>
-      <% else%>
-        <strong><p>※※※アイデアの投稿には新規登録/ログインが必要です※※※</p></strong>
-      <% end %>
-  <%# /アイデア投稿%> 
 
   <%# /アイデア投稿一覧%> 
-  <div class="tweet-area">
-  <h4>＜アイデア一覧＞</h4>
-    <% if @tweets.present?%>
+  <div class="tweet-content">
+    <div class="tweet-area">
       <% @tweets.each do |tweet|%>
         <div class="tweet">
-          <div class="head-tweet">
-            <div class='img-content'>
-              <% if tweet.user.image.present?%>
-                <%= image_tag tweet.user.image ,class:"user-icon" %>
+          <div class="tweet-left">
+            <% if tweet.user.image.present?%>
+              <%= image_tag tweet.user.image ,class:"user-icon" %>
+            <% else %>
+              <%= image_tag "icon_noimage" ,class:"user-icon"%>
+            <% end %>
+          </div>
+          <div class="tweet-center">
+            <div class="tweet-head">
+              <div><%= link_to "#{tweet.user.nickname}", "#{user_path(tweet.user_id)}", class:"user-nickname"%></div>
+              <div class="created-date"><%= tweet.created_at.strftime('%Y/%m/%d')%></div>
+            </div>
+            <div class="tweet-body">
+                <p class="tweet-idea"><span style="font-weight:bold;">アイデア：</span><%= tweet.idea%></p>
+                <p class="tweet-explain"><span style="font-weight:bold;">説明：</span><%= tweet.explain%></p>
+                <p class="tweet-other"><span style="font-weight:bold;">その他：</span><%= tweet.other%></p>
+            </div>
+            <div class="tweet-foot">
+              <%# /編集・削除 %>
+              <% if user_signed_in? %>
+                <% if current_user.id == tweet.user_id && tweet.tweet_purchase.blank?%>
+                  <%= link_to 'アイデアの編集', edit_recruit_tweet_path(@recruit.id), class: "tweet-orange-btn"%>
+                  <%= link_to '削除', tweet_path(tweet.id), method: :delete, class:'tweet-destroy' %>
+                <% elsif current_user.id != tweet.user_id && tweet.tweet_purchase.blank? %>
+                  <%= link_to '購入画面に進む', recruit_tweet_tweet_purchases_path(@recruit.id,tweet.id) ,class:"tweet-purchase"%>
+                <%else current_user.id != tweet.user_id && tweet.tweet_purchase.present?%>
+                  <span style="color:red;font-weight:bold;">購入済み</span>
+                <% end %>
+              <% end %>
+              <%# /編集・削除 %>
+            </div>
+          </div>
+          <div class="tweet-right">
+            <div class='idea-img-content'>
+              <% if tweet.image.present?%>
+                  <%= image_tag tweet.image ,class:"tweet-img" %>
               <% else %>
-                <%# /ダミー画像 %>
-                <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
+                <%= image_tag "idea_noimage" ,class:"tweet-img" %>
               <% end %>
             </div>
-            <div><%= link_to "#{tweet.user.nickname}","#", class:"user-nickname"%></div>
-            <div class="created-date"><%= tweet.created_at.strftime('%Y/%m/%d')%></div>
           </div>
-          <div class="body-tweet">
-            <div class="tweet-idea"><%= tweet.idea%></div>
-            <div class="tweet-explain"><%= tweet.explain%></div>
-            <% if tweet.image.present?%>
-              <%= image_tag tweet.image ,class:"item-box-img" %>
-            <% else %>
-              <%# /ダミー画像 %>
-              <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-            <% end %>
-          </div>
-          <div class="foot-tweet">
-            <div class="tweet-other"><%= tweet.other%></div>
-          </div>
-              <%# /編集・削除 %>
-          <% if user_signed_in? %>
-            <% if current_user.id == tweet.user_id && tweet.tweet_purchase.blank?%>
-              <%= link_to '削除', tweet_path(tweet.id), method: :delete, class:'recruit-destroy' %>
-            <% elsif current_user.id != tweet.user_id && tweet.tweet_purchase.blank? %>
-              <%= link_to '購入画面に進む', recruit_tweet_tweet_purchases_path(@recruit.id,tweet.id) ,class:"tweet-red-btn"%>
-            <%else current_user.id != tweet.user_id && tweet.tweet_purchase.present?%>
-              購入済み
-            <% end %>
-          <% end %>
-             <%# /編集・削除 %>
         </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
   <%# /アイデア投稿一覧%> 
 </div>
+
+<%= render "shared/footer" %>

@@ -4,77 +4,180 @@
 
 .idea-contents{
   width: 100vw;
-  background-color: red;
+  margin: 70px 0;
 }
 
 .top-content{
   width: 80vw;
-  height: 5vh;
+  height: 10vh;
   margin: auto;
-  background-color: burlywood;
+  padding-top: 2vh;
+}
+
+.new-post-btn1{
+  padding-left: 5%;
+}
+
+.new-post-btn2{
+  display: block;
+	position: relative;
+	width: 300px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: #FFA500;
+  border:1px solid #FFA500
+}
+
+.new-post-btn2:hover {
+  background-color: #FF8C00;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .post-area{
   width: 80vw;
   height: 60vh;
-  background-color: aqua;
+  overflow: scroll;
+  background-color: #ffffff;
   margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border: 1px solid lightgray;
 }
 
 .post{
-  width: 40vw;
-  height: 15vh;
-  margin: 1vh 0;
-  background-color: azure;
+  width: 400px;
+  height: 170px;
+  margin: 15px 20px;
+  padding: 8px;
+  display: flex;
+  background-color: #ffffff;
+  border-top: solid 5px #FFA500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.22);
 }
 
-.head-post{
-  width: 40vw;
-  height: 5vh;
-  background-color: blue;
+.post-left{
+  width: 60px;
+  height: 170px;
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .user-icon{
-  width: 40px;
+  width: 45px;
+  height: 45px;
+}
+
+.post-right{
+  height: 170px;
+}
+
+.post-head{
+  width: 340px;
   height: 40px;
-  margin: 0vh 3vw;
-  background-color: blueviolet;
+  border-bottom: solid 1px lightgrey;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .user-nickname{
   font-size: 20px;
+  font-weight: bold;
   text-decoration: none;
+  color: #1B1B1B;
 }
 
 .created-date{
-  margin-left: 12vw;
+  color: #888888;
 }
 
-.body-post{
-  width: 40vw;
-  height: 6vh;
-  border-bottom: solid 1px lightgray;
-  text-align: center;
-  background-color: cadetblue;
+.post-body{
+  width: 340px;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: solid 1px lightgrey;
 }
 
 .idea{
-  width: 20vw;
+  display: block;
   font-size: 30px;
   text-decoration: none;
-  background-color: burlywood;
-  margin: auto;
+  color: #1B1B1B;
 }
 
-.foot-post{
-  width: 40vw;
-  height: 4vh;
+.post-foot{
+  width: 340px;
+  height: 50px;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
+
+.new-recruit-btn2{
+  display: block;
+	position: relative;
+	width: 300px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #BBFFFF;
+  border:1px solid #FFA500
+}
+
+.new-recruit-btn2:hover {
+  background-color:	#77FFFF;
+  color: #1B1B1B;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.recruit-post{
+  width: 400px;
+  height: 170px;
+  margin: 15px 20px;
+  padding: 8px;
+  display: flex;
+  background-color: #ffffff;
+  border-top: solid 5px #99FFFF;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.22);
 }
 
 .price{
   font-size: 20px;
+  font-weight: 600;
+}
+
+.recruit{
+  display: block;
+  font-size: 20px;
+  text-decoration: none;
+  word-break : break-all;
+  color: #1B1B1B;
+}
+
+.price-range{
+  font-size: small;
+}
+
+.servise-info{
+  width: 100vw;
+  background-image: image-url('c.jpeg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top center;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 5vh 15vw;
+  color: #fff;
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
 }

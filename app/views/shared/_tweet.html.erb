@@ -1,13 +1,29 @@
 <div class="tweet">
-  <div class="head-tweet">
-    <div class="user-nickname"><%= tweet.user.nickname %></div>
-    <div class="created-date"><%= tweet.created_at.strftime('%Y/%m/%d')%></div>
+  <div class="tweet-left">
+    <% if tweet.user.image.present?%>
+      <%= image_tag tweet.user.image ,class:"user-icon" %>
+    <% else %>
+      <%= image_tag "icon_noimage" ,class:"user-icon"%>
+    <% end %>
   </div>
-  <div class="body-tweet">
-    <div class="tweet-idea"><%= tweet.idea%></div>
-    <div class="tweet-explain"><%= tweet.explain%></div>
+  <div class="tweet-center">
+    <div class="tweet-head">
+      <div class="user-nickname"><%= tweet.user.nickname%></div>
+      <div class="created-date"><%= tweet.created_at.strftime('%Y/%m/%d')%></div>
+    </div>
+    <div class="tweet-body">
+        <p class="tweet-idea"><span style="font-weight:bold;">アイデア：</span><%= tweet.idea%></p>
+        <p class="tweet-explain"><span style="font-weight:bold;">説明：</span><%= tweet.explain%></p>
+        <p class="tweet-other"><span style="font-weight:bold;">その他：</span><%= tweet.other%></p>
+    </div>
   </div>
-  <div class="foot-tweet">
-    <div class="tweet-other"><%= tweet.other%></div>
+  <div class="tweet-right">
+    <div class='idea-img-content'>
+      <% if tweet.image.present?%>
+          <%= image_tag tweet.image ,class:"tweet-img" %>
+      <% else %>
+        <%= image_tag "idea_noimage" ,class:"tweet-img" %>
+      <% end %>
+    </div>
   </div>
 </div>

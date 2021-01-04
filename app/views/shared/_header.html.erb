@@ -1,22 +1,31 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <div class="user">
-    <div class="head-left">
-      <a href="/" class="servise-explain">
-        アプリ名
-      </a>
-      <p class="servise-explain">
-        アプリの概要
-      </p>
+  <div class="top">
+    <a href="/" class="servise-name">
+      アイデアアップ
+    </a>
+    <div class="top-right">
+      <div class="nav-contents">
+        <form class="search-form" action="#">
+          <input class='input-box' placeholder='キーワードから探す'>
+          <button class="search-button">
+            <%= image_tag "search.png", class:"search-icon" %>
+          </button>
+        </form>
+      </div>
+      <ul class='user-contents'>
+        <% if user_signed_in? %>
+        <li><%= link_to current_user.nickname, "#{user_path(current_user)}", class: "user-name" %></li>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+        <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+        <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+        <% end %>
+      </ul>
     </div>
-    <ul class='head-right'>
-      <% if user_signed_in? %>
-      <li><%= link_to current_user.nickname, "#{user_path(current_user)}", class: "user-nickname" %></li>
-      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
-      <% else %>
-      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
-      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
-      <% end %>
-    </ul>
   </div>
+
+  <%# ナビゲーション %>
+  
+  <%# ナビゲーション %>
 </header>

@@ -1,10 +1,18 @@
 <%# CSS・・・assets/stylesheets/shared/header.css %>
 <header class='top-page-header'>
-  <div class="user">
-    <div class="head-left">
-      <h1 class="servise-explain">
-        アプリ名
-      </h1>
-    </div>
+  <div class="top">
+    <a href="/" class="servise-name">
+      アイデアアップ
+    </a>
+
+    <ul class='user-contents'>
+      <% if user_signed_in? %>
+      <li><%= link_to current_user.nickname, "#{user_path(current_user)}", class: "user-name" %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li>
+      <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+      <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+      <% end %>
+    </ul>
   </div>
 </header>
