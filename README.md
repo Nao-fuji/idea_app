@@ -1,10 +1,9 @@
-# アプリ名
+# アイデアアップ
 ## Overview
     アイデアを投稿・募集・買取するアプリケーション
-## Demo
-    viewの画像などを貼る
+    
 ## Usage
-    使い方
+    <img width="1544" alt="スクリーンショット 2021-01-05 0 57 44" src="https://user-images.githubusercontent.com/72326957/103553952-86c3dd00-4ef1-11eb-9f57-f64a6a7e4ef1.png">
 ## Requirement
     開発環境
 ## Install
