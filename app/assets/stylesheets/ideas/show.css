@@ -1,0 +1,171 @@
+/* アイデア概要 */
+.idea-show{
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.idea-box{
+  width: 70vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.idea-box>.title{
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.idea-price{
+  font-size: 35px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.idea-img{
+  height: 40vh;
+  width: 50vw;
+  min-height: 500px;
+  object-fit: contain;
+  background-color: #ffffff;
+  border-top: solid 5px #FFA500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.22);
+}
+
+.idea-info-table{
+  margin: 40px 0;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  border-top: solid 5px #FFA500;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.22);
+}
+
+.detail-idea{
+  width: 25%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 16px;
+  text-align: center;
+}
+
+.detail-value{
+  width: 75%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 20px;
+  word-break : break-all;
+}
+/* アイデア概要 */
+
+/* 編集・削除・購入ボタン */
+.signed-in-btn{
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.idea-orange-btn1 {
+  display: block;
+	position: relative;
+	width: 250px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #FFA500;
+  border:1px solid #FFA500
+}
+
+.idea-orange-btn1:hover {
+  background-color: #FF8C00;
+  color: #1B1B1B;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.idea-destroy {
+  display: block;
+	position: relative;
+	width: 250px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: lightgray;
+  border:1px solid lightgray
+}
+
+.idea-destroy:hover {
+  background-color: gray;
+  color: #eee;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.idea-orange-btn2 {
+  display: block;
+	position: relative;
+	width: 250px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #1B1B1B;
+	background: #FFA500;
+  border:1px solid #FFA500
+}
+
+.idea-orange-btn2:hover {
+  background-color: #FF8C00;
+  color: #1B1B1B;
+  cursor: pointer;
+  text-decoration: none;
+}
+/* 編集・削除・購入ボタン */
+
+/* Good・Badボタン */
+.option {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 50px;
+}
+
+.favorite-btn {
+  border-radius: 40px;
+  width: 15vw;
+  min-width: 200px;
+  color: rgb(249, 75, 0);
+  border: 2px solid #ffb340;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.favorite-star-icon {
+  margin-right: 5px;
+}
+
+.report-btn {
+  border-radius: 40px;
+  width: 15vw;
+  min-width: 200px;
+
+  padding: 1vh 0;
+  color: black;
+  border: 2px solid #2d2d2d;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.report-flag-icon {
+  margin-right: 5px;
+}
+/* Good/Bad ボタン */

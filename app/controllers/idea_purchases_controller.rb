@@ -6,6 +6,7 @@ class IdeaPurchasesController < ApplicationController
   end
 
   def create
+    binding.pry
     @idea_purchase =IdeaPurchase.new(idea_purchase_params)
     if @idea_purchase.valid?
       pay_idea

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   resources :users, only: :show
   resources :recruits do
-    resources :tweets, only: :create do
+    resources :tweets, only: [:new,:create, :edit, :update] do
       resources :tweet_purchases, only:[:index, :create]
     end
   end

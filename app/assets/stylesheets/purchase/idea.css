@@ -1,0 +1,17 @@
+/* 購入内容の表示 */
+.buy-idea-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* /購入内容の表示 */
+
+.idea-payment{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.idea-payment-price{
+  font-size: large;
+}
