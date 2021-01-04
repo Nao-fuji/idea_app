@@ -10,30 +10,45 @@
 <br>
 ### 2.アイデア投稿一覧ベージ
    ![image](https://user-images.githubusercontent.com/72326957/103555704-0488e800-4ef4-11eb-84de-e5e5d3b46e1a.png)
-   
+<br>
+<br>
+<br>   
 ### 3.アイデア投稿詳細ベージ（購入前）
    購入する前ではアイデアの詳細（関連画像やアイデア、その他）を見ることができない
    ![image](https://user-images.githubusercontent.com/72326957/103556205-c50ecb80-4ef4-11eb-99ec-2ee8e4deb78f.png)
-   
+<br>
+<br>
+<br>   
 ### 4.アイデア投稿詳細ベージ（購入後）
    ![image](https://user-images.githubusercontent.com/72326957/103555910-56317280-4ef4-11eb-9996-76c437d7f444.png)
-    
+ <br>
+<br>
+<br>   
 ### 5.アイデア募集一覧ページ
    ![image](https://user-images.githubusercontent.com/72326957/103555757-1ec2c600-4ef4-11eb-968c-91ff31584ab2.png)
-   
+<br>
+<br>
+<br>   
    
 ### 6.アイデア募集詳細ページ
    ![image](https://user-images.githubusercontent.com/72326957/103555952-647f8e80-4ef4-11eb-9baa-2db11148ad05.png)
-   
+<br>
+<br>
+<br>   
 ### 7.アイデア募集に対する投稿一覧
    ![image](https://user-images.githubusercontent.com/72326957/103556121-a4467600-4ef4-11eb-987e-92a7866d46ed.png)
-   
+<br>
+<br>
+<br>   
 ### 8.アイデア購入ページ
    ![image](https://user-images.githubusercontent.com/72326957/103556253-d6f06e80-4ef4-11eb-9a44-93267c4d6cfd.png)
-   
+<br>
+<br>
+<br>   
 ### 9.ユーザー新規登録ページ
    ![image](https://user-images.githubusercontent.com/72326957/103556288-e5d72100-4ef4-11eb-8712-c50be8ee24a3.png)
-
+<br>
+<br>
 ## Requirement
     VSCode（Visual Studio Code）
     
