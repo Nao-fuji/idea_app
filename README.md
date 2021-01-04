@@ -3,8 +3,8 @@
     アイデアを投稿・募集・買取するアプリケーション
     
 ## Usage
-    <img width="1544" alt="スクリーンショット 2021-01-05 0 57 44" src="https://user-images.githubusercontent.com/72326957/103553952-86c3dd00-4ef1-11eb-9f57-f64a6a7e4ef1.png">
-    <img width="1544" alt="スクリーンショット 2021-01-05 0 59 54" src="https://user-images.githubusercontent.com/72326957/103554271-f6d26300-4ef1-11eb-8230-8af922c2f239.png">
+   ![IMG_8718](https://user-images.githubusercontent.com/72326957/103554360-25503e00-4ef2-11eb-9882-94d2d47deafd.JPG)
+
 
 ## Requirement
     開発環境
