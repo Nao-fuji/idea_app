@@ -3,8 +3,8 @@
     アイデアを投稿・募集・買取するアプリケーション
     
 ## Usage
-    ### 1.ホーム画面
-    ![image](https://user-images.githubusercontent.com/72326957/103554791-ce973400-4ef2-11eb-9999-d05decc5f8a3.png)
+  ### 1.ホーム画面
+  ![image](https://user-images.githubusercontent.com/72326957/103554791-ce973400-4ef2-11eb-9999-d05decc5f8a3.png)
     
     ###2.アイデア投稿一覧ベージ
     ###3.アイデア投稿詳細ベージ（購入前）
