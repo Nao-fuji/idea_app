@@ -1,14 +1,165 @@
-.idea-index{
-  margin-top: 50px;
+.main1 {
+  background-color: #f8f8f8;
+  display: flex;
+}
+/* カレントユーザー */
+.side-bar{
+  min-width: 320px;
+  height: 400px;
+  margin: 135px 20px ;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid lightgray;
+  border-top: solid 5px #FFA500;
+}
+
+.side-icon{
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-page-icon{
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; 
+}
+
+.side-name{
+  width: 100%;
+  height: 50px;
+  padding: 8px;
+  text-align: center;
+  font-weight: 800;
+  font-size: 25px;
+}
+
+.side-email{
+  width: 100%;
+  height: 25px;
+  text-align: center;
+  color: gray;
+}
+
+.side-main{
+  width: 100%;
+  height: 120px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.side-main-left{
+  width: 70px;
+  height: 100px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.side-main-left2{
+  font-size: large;
 }
 
 
+.side-main-center{
+  width: 70px;
+  height: 100px;
+  margin: 0px 15px;
+  text-align: center;
+  padding-top: 15px;
+}
+
+.side-main-center2{
+  font-size: large;
+}
+
+.side-main-right{
+  width: 70px;
+  height: 100px;
+  text-align: center;
+  padding-top: 8px;
+}
+
+.side-main-right1{
+  font-size: small;
+}
+
+.side-main-right2{
+  margin-top: 7px;
+  font-size: large;
+}
+
+.side-foot{
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-edit-btn{
+  display: block;
+	position: relative;
+	width: 250px;
+	padding: 0.4em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: #FFA500;
+  border:1px solid #FFA500
+}
+
+.user-edit-btn:hover {
+  background-color: #FF8C00;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* カレントユーザー */
+
+/* その他のユーザー */
+.side-bar1{
+  width: 320px;
+  height: 320px;
+  margin: 135px 20px ;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid lightgray;
+  border-top: solid 5px #FFA500;
+}
+/* その他のユーザー */
+
+
+.post-area1{
+  width: 65vw;
+  height: 60vh;
+  padding-left: 20px;
+  overflow: scroll;
+  background-color: #ffffff;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  border: 1px solid lightgray;
+}
+
+.tweet-index1{
+  margin-top: 80px;
+}
+
+.idea-index{
+  margin-top: 60px;
+}
+
 .recruit-index{
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .tweet-index{
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .h{

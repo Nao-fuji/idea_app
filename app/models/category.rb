@@ -15,4 +15,12 @@ class Category < ActiveHash::Base
     { id: 13, name: 'フード/ドリンク' },
     { id: 14, name: 'その他' }
   ]
+
+  def self.search(search)
+    if search != ""
+      Category.where(id: 2)
+    else
+      Idea.all
+    end
+  end
 end
