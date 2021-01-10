@@ -2,127 +2,132 @@
 
 <div class="main">
   <%# アイデア投稿 %>
-  <div class="idea-contents">
-    <div class="top-content">
-      <div class="new-post-btn1"><%= link_to "新しいアイデアを投稿", new_idea_path, class:"new-post-btn2"%></div>
-    </div>
-    <div class="post-area">
-    <%# 投稿あり %>
-      <% if @ideas.present?%>
-        <% @ideas.each do |idea|%>
-          <% if idea.idea_purchase.blank?%>
+  <div class="main-contents">
+    <div class="idea-contents">
+      <div class="top-content">
+        <div class="new-post-btn1"><%= link_to "新しいアイデアを投稿", new_idea_path, class:"new-post-btn2"%></div>
+      </div>
+      <div class="post-area">
+      <%# 投稿あり %>
+        <% if @ideas.present?%>
+          <% @ideas.each do |idea|%>
+            <% if idea.idea_purchase.blank?%>
+            <div class="post">
+              <div class="post-left">
+                <% if idea.user.image.present?%>
+                  <%= image_tag idea.user.image ,class:"user-icon" %>
+                <% else %>
+                  <%= image_tag "icon_noimage" ,class:"user-icon"%>
+                <% end %>
+              </div>
+              <div class="post-right">
+                <div class="post-head">
+                  <div><%= link_to "#{idea.user.nickname}", "#{user_path(idea.user_id)}", class:"user-nickname"%></div>
+                  <div class="created-date"><%= idea.created_at.strftime('%Y/%m/%d')%></div>
+                </div>
+                <div class="post-body">
+                  <div><%= link_to "#{idea.title}","#{idea_path(idea.id)}",class:"idea"%></div>
+                </div>
+                <div class="post-foot">
+                  <div class="price">¥<%= idea.price%></div>
+                  <div class="category"><%= idea.category.name%></div>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          <% end %>
+        <% end %>
+        <%# 投稿あり %>
+
+        <%# 投稿なし %>
+        <% if @ideas.blank? %>
           <div class="post">
             <div class="post-left">
-              <% if idea.user.image.present?%>
-                <%= image_tag idea.user.image ,class:"user-icon" %>
-              <% else %>
-                <%= image_tag "icon_noimage" ,class:"user-icon"%>
-              <% end %>
+              <%= image_tag "icon_noimage" ,class:"user-icon"%>
             </div>
             <div class="post-right">
               <div class="post-head">
-                <div><%= link_to "#{idea.user.nickname}", "#{user_path(idea.user_id)}", class:"user-nickname"%></div>
-                <div class="created-date"><%= idea.created_at.strftime('%Y/%m/%d')%></div>
+                <div class="user-nickname">hoge太郎</div>
+                <div class="created-date">2020/01/01</div>
               </div>
               <div class="post-body">
-                <div><%= link_to "#{idea.title}","#{idea_path(idea.id)}",class:"idea"%></div>
+                <div class="idea">投稿してください</div>
               </div>
               <div class="post-foot">
-                <div class="price">¥<%= idea.price%></div>
-                <div class="category"><%= idea.category.name%></div>
+                <div class="price">¥100</div>
+                <div class="category">教育</div>
               </div>
             </div>
           </div>
+        <% end %>
+        <%# 投稿なし %>
+      </div>
+    </div>
+    <%# アイデア投稿 %>
+
+    <%# アイデア募集 %>
+    <div class="idea-contents">
+      <div class="top-content">
+        <div class="new-post-btn1"><%= link_to "新しいアイデアを募集", new_recruit_path, class:"new-recruit-btn2"%></div>
+      </div>
+      <div class="post-area">
+        <%# 投稿あり %>
+        <% if @recruits.present?%>
+          <% @recruits.each do |recruit|%>
+            <div class="recruit-post">
+              <div class="post-left">
+                <% if recruit.user.image.present?%>
+                  <%= image_tag recruit.user.image ,class:"user-icon" %>
+                <% else %>
+                  <%= image_tag "icon_noimage" ,class:"user-icon"%>
+                <% end %>
+              </div>
+              <div class="post-right">
+                <div class="post-head">
+                  <div><%= link_to "#{recruit.user.nickname}", "#{user_path(recruit.user_id)}", class:"user-nickname"%></div>
+                  <div class="created-date"><%= recruit.created_at.strftime('%Y/%m/%d')%></div>
+                </div>
+                <div class="recruit-body">
+                  <div><%= link_to "#{recruit.theme}","#{recruit_path(recruit.id)}",class:"recruit"%></div>
+                </div>
+                <div class="recruit-foot">
+                  <div class="price-content1">
+                    <div class="price-range">買取価格の範囲</div>
+                    <div class="price">¥<%= recruit.price%></div>
+                  </div>
+                  <div class="category"><%= recruit.category.name%></div>
+                </div>
+              </div>
+            </div>
           <% end %>
         <% end %>
-      <% end %>
-      <%# 投稿あり %>
+        <%# 投稿あり %>
 
-      <%# 投稿なし %>
-      <% if @ideas.blank? %>
-        <div class="post">
-          <div class="post-left">
-            <%= image_tag "icon_noimage" ,class:"user-icon"%>
-          </div>
-          <div class="post-right">
-            <div class="post-head">
+        <%# 投稿なし %>
+        <% if @recruits.blank?%>
+          <div class="post">
+            <div class="head-post">
+              <%= image_tag "icon_noimage" ,class:"user-icon"%>
               <div class="user-nickname">hoge太郎</div>
               <div class="created-date">2020/01/01</div>
             </div>
-            <div class="post-body">
-              <div class="idea">投稿してください</div>
+            <div class="body-post">
+              <div class="idea">募集してください</div>
             </div>
-            <div class="post-foot">
-              <div class="price">¥100</div>
+            <div class="foot-post">
+              <div class="price">¥10~100</div>
               <div class="category">教育</div>
             </div>
           </div>
-        </div>
-      <% end %>
-      <%# 投稿なし %>
-    </div>
-  </div>
-  <%# アイデア投稿 %>
-
-  <%# アイデア募集 %>
-  <div class="idea-contents">
-    <div class="top-content">
-      <div class="new-post-btn1"><%= link_to "新しいアイデアを募集", new_recruit_path, class:"new-recruit-btn2"%></div>
-    </div>
-    <div class="post-area">
-      <%# 投稿あり %>
-      <% if @recruits.present?%>
-        <% @recruits.each do |recruit|%>
-          <div class="recruit-post">
-            <div class="post-left">
-              <% if recruit.user.image.present?%>
-                <%= image_tag recruit.user.image ,class:"user-icon" %>
-              <% else %>
-                <%= image_tag "icon_noimage" ,class:"user-icon"%>
-              <% end %>
-            </div>
-            <div class="post-right">
-              <div class="post-head">
-                <div><%= link_to "#{recruit.user.nickname}", "#{user_path(recruit.user_id)}", class:"user-nickname"%></div>
-                <div class="created-date"><%= recruit.created_at.strftime('%Y/%m/%d')%></div>
-              </div>
-              <div class="recruit-body">
-                <div><%= link_to "#{recruit.theme}","#{recruit_path(recruit.id)}",class:"recruit"%></div>
-              </div>
-              <div class="post-foot">
-                <div class="price-content">
-                  <div class="price-range">買取価格の範囲</div>
-                  <div class="price">¥<%= recruit.price%></div>
-                </div>
-                <div class="category"><%= recruit.category.name%></div>
-              </div>
-            </div>
-          </div>
         <% end %>
-      <% end %>
-      <%# 投稿あり %>
-
-      <%# 投稿なし %>
-      <% if @recruits.blank?%>
-        <div class="post">
-          <div class="head-post">
-            <%= image_tag "icon_noimage" ,class:"user-icon"%>
-            <div class="user-nickname">hoge太郎</div>
-            <div class="created-date">2020/01/01</div>
-          </div>
-          <div class="body-post">
-            <div class="idea">募集してください</div>
-          </div>
-          <div class="foot-post">
-            <div class="price">¥10~100</div>
-            <div class="category">教育</div>
-          </div>
-        </div>
-      <% end %>
-      <%# 投稿なし %>
+        <%# 投稿なし %>
+      </div>
     </div>
+    <%# アイデア募集 %>
   </div>
-  <%# アイデア募集 %>
+  <div class="idea-content-foot">
+    <a href="/" class="a">トップページに戻る</a>
+  </div>
 </div>
 
 <%= render "shared/footer"%>
