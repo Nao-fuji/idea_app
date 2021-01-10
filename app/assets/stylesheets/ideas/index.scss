@@ -1,10 +1,11 @@
 .main {
   background-color: #f8f8f8;
+  padding: 50px 0px;
 }
 
 .idea-contents{
-  width: 100vw;
-  margin: 70px 0;
+  width: 100%;
+  margin-bottom: 50px;
 }
 
 .top-content{
@@ -176,6 +177,7 @@
 
 .price-range{
   font-size: small;
+  width: 100px;
 }
 
 .servise-info{
@@ -191,4 +193,16 @@
   padding: 5vh 8vw;
   color: #fff;
   text-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+}
+
+.recruit-foot{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.price-content1{
+  width: 50%;
 }

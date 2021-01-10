@@ -1,6 +1,7 @@
 .main1 {
   background-color: #f8f8f8;
   display: flex;
+  padding-bottom: 50px;
 }
 /* カレントユーザー */
 .side-bar{
