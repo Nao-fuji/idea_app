@@ -1,5 +1,6 @@
 class IdeasController < ApplicationController
   before_action :set_idea, only: [:show, :edit, :update, :destroy]
+  before_action :move_to_index, except: [:index, :show, :search]
 
   def index
     @ideas=Idea.order('created_at DESC')
@@ -38,6 +39,11 @@ class IdeasController < ApplicationController
     redirect_to root_path
   end
 
+  def search
+    @ideas = Idea.search(params[:keyword])
+    @recruits = Recruit.search(params[:keyword])
+  end
+
   private
   def idea_params
     params.require(:idea).permit(:title, :idea, :price, :category_id, :other, :image).merge(user_id: current_user.id)
@@ -45,6 +51,12 @@ class IdeasController < ApplicationController
 
   def set_idea
     @idea=Idea.find(params[:id])
+  end
+
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
   end
 
 end

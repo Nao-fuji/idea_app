@@ -8,6 +8,14 @@ class Idea < ApplicationRecord
   has_one :idea_purchase
   has_one_attached :image
 
+  def self.search(search)
+    if search != ""
+      Idea.where('title LIKE(?)', "%#{search}%")
+    else
+      Idea.all
+    end
+  end
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
 end

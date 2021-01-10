@@ -1,55 +1,106 @@
 <%= render "shared/header" %>
-<div class="main">
-  <div class="contents row">
-    <% if current_user.id == @user.id %>
-    <div class="tweet-index">
-      <h2 class="h"><%= @nickname %>さんの購入アイデア一覧</h2>
-      <div class="post-area">
-        <% @idea_purchases.each do |idea_purchase| %>
-          <a href="/ideas/<%= idea_purchase.idea_id%>",class="idea-box", style="text-decoration:none; color:black;">
-            <%= render partial: "shared/idea", locals: { idea: idea_purchase.idea } %>
-          </a>
-        <% end %>
-      </div>
-      <% end %>
-    </div>
 
-    <% if current_user.id == @user.id %>
-    <div class="idea-index">
-      <h2 class="h"><%= @nickname %>さんのアイデア一覧</h2>
-      <div class="post-area">
-        <% @ideas.each do |idea| %>
-          <a href="/ideas/<%= idea.id%>",class="idea-box", style="text-decoration:none; color:black;">
-            <%= render partial: "shared/idea", locals: { idea: idea } %>
-          </a>
-        <% end %>
+<div class="main1">
+  <% if current_user.id == @user.id %>
+  <div class="side-bar">
+    <div class="side-content">
+      <div class="side-icon"><%= image_tag @image ,class:"user-page-icon" %></div>
+      <div class="side-name"><%= @nickname %></div>
+      <div class="side-email"><%= @user.email %></div>
+      <div class="side-main">
+        <div class="side-main-left">
+          <div class="side-main-left1">アイデア</div>
+          <p class="side-main-left2"><%= @ideas.length%></p>
+        </div>
+        <div class="side-main-center">
+          <div class="side-main-center1">募集</div>
+          <p class="side-main-center2"><%= @recruits.length%></p>
+        </div>
+        <div class="side-main-right">
+          <div class="side-main-right1">募集の<br>アイデア</div>
+          <div class="side-main-right2"><%= @tweets.length%></div>
+        </div>
       </div>
-      <% end %>
-    </div>
-    
-    <div class="recruit-index">
-      <h2 class="h"><%= @nickname %>さんの募集投稿一覧</h2>
-      <div class="post-area">
-      <% @recruits.each do |recruit|%>
-        <a href="/recruits/<%= recruit.id%>",class="recruit-box", style="text-decoration:none; color:black;">
-          <%= render partial: "shared/recruit", locals: { recruit: recruit } %>
-        </a>
-      <% end %>
+      <div class="side-foot">
+        <%= link_to "プロフィールを編集する", edit_user_registration_path, class: "user-edit-btn" %>
       </div>
     </div>
+  </div>
+  <%else%>
+  <div class="side-bar1">
+    <div class="side-content">
+      <div class="side-icon"><%= image_tag @image ,class:"user-page-icon" %></div>
+      <div class="side-name"><%= @nickname %></div>
+      <div class="side-main">
+        <div class="side-main-left">
+          <div class="side-main-left1">アイデア</div>
+          <p class="side-main-left2"><%= @ideas.length%></p>
+        </div>
+        <div class="side-main-center">
+          <div class="side-main-center1">募集</div>
+          <p class="side-main-center2"><%= @recruits.length%></p>
+        </div>
+        <div class="side-main-right">
+          <div class="side-main-right1">募集の<br>アイデア</div>
+          <div class="side-main-right2"><%= @tweets.length%></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
 
-    <% if current_user.id == @user.id %>
-    <div class="tweet-index">
-      <h2 class="h"><%= @nickname %>さんの募集に対するアイデア一覧</h2>
-      <div class="post-area">
-        <% @tweets.each do |tweet|%>
-          <a href="/recruits/<%= tweet.recruit_id%>",class="tweet-box", style="text-decoration:none; color:black;">
-            <%= render partial: "shared/tweet", locals: { tweet: tweet } %>
-          </a>
+  <div class="main-content">
+    <div class="contents row">
+      <% if current_user.id == @user.id %>
+      <div class="tweet-index1">
+        <h2 class="h"><%= @nickname %>さんの購入アイデア一覧</h2>
+        <div class="post-area1">
+          <% @idea_purchases.each do |idea_purchase| %>
+            <a href="/ideas/<%= idea_purchase.idea_id%>",class="idea-box", style="text-decoration:none; color:black;">
+              <%= render partial: "shared/idea", locals: { idea: idea_purchase.idea } %>
+            </a>
+          <% end %>
+        </div>
         <% end %>
       </div>
+
+      <% if current_user.id == @user.id %>
+      <div class="idea-index">
+        <h2 class="h"><%= @nickname %>さんのアイデア一覧</h2>
+        <div class="post-area1">
+          <% @ideas.each do |idea| %>
+            <a href="/ideas/<%= idea.id%>",class="idea-box", style="text-decoration:none; color:black;">
+              <%= render partial: "shared/idea", locals: { idea: idea } %>
+            </a>
+          <% end %>
+        </div>
+        <% end %>
+      </div>
+      
+      <div class="recruit-index">
+        <h2 class="h"><%= @nickname %>さんの募集投稿一覧</h2>
+        <div class="post-area1">
+        <% @recruits.each do |recruit|%>
+          <a href="/recruits/<%= recruit.id%>",class="recruit-box", style="text-decoration:none; color:black;">
+            <%= render partial: "shared/recruit", locals: { recruit: recruit } %>
+          </a>
+        <% end %>
+        </div>
+      </div>
+
+      <% if current_user.id == @user.id %>
+      <div class="tweet-index">
+        <h2 class="h"><%= @nickname %>さんの募集に対するアイデア一覧</h2>
+        <div class="post-area1">
+          <% @tweets.each do |tweet|%>
+            <a href="/recruits/<%= tweet.recruit_id%>",class="tweet-box", style="text-decoration:none; color:black;">
+              <%= render partial: "shared/tweet", locals: { tweet: tweet } %>
+            </a>
+          <% end %>
+        </div>
+      </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
 

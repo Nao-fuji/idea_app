@@ -8,12 +8,10 @@
         </a>
         <div class="top-right">
           <div class="nav-contents">
-            <form class="search-form" action="#">
-              <input class='input-box' placeholder='キーワードから探す'>
-              <button class="search-button">
-                <%= image_tag "search.png", class:"search-icon" %>
-              </button>
-            </form>
+            <%= form_with(url: search_ideas_path, local: true, method: :get, class: "search-form") do |f| %>
+              <%= f.text_field :keyword, placeholder: "キーワードから探す", class: "input-box" %>
+              <%= image_submit_tag "search.png" , class:"search-button"%>
+            <% end %>
           </div>
           <ul class='user-contents'>
             <% if user_signed_in? %>

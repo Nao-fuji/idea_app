@@ -7,7 +7,7 @@
       <div class="new-post-btn1"><%= link_to "新しいアイデアを投稿", new_idea_path, class:"new-post-btn2"%></div>
     </div>
     <div class="post-area">
-     <%# 投稿あり %>
+    <%# 投稿あり %>
       <% if @ideas.present?%>
         <% @ideas.each do |idea|%>
           <% if idea.idea_purchase.blank?%>
@@ -86,7 +86,7 @@
                 <div><%= link_to "#{recruit.user.nickname}", "#{user_path(recruit.user_id)}", class:"user-nickname"%></div>
                 <div class="created-date"><%= recruit.created_at.strftime('%Y/%m/%d')%></div>
               </div>
-              <div class="post-body">
+              <div class="recruit-body">
                 <div><%= link_to "#{recruit.theme}","#{recruit_path(recruit.id)}",class:"recruit"%></div>
               </div>
               <div class="post-foot">

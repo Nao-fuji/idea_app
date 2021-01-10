@@ -4,7 +4,6 @@
 
 .top-page-header {
   width: 100vw;
-
 }
 
 .top{
@@ -22,6 +21,7 @@
   font-weight: 800;
   text-decoration: none;
   color: #fff;
+  background-color: #003333;
 }
 
 .user-contents {
@@ -90,7 +90,7 @@
   width: 5vh;
   border: 0;
   cursor: pointer;
-  background-color: #3ccace;
+  background-color: #FFA500;
   padding: 8px;
 }
 
