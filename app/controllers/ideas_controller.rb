@@ -21,8 +21,6 @@ class IdeasController < ApplicationController
   end
 
   def show
-    @like = Like.new
-    @dislike = Dislike.new
   end
 
   def edit
