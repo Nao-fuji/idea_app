@@ -3,8 +3,8 @@ class IdeasController < ApplicationController
   before_action :move_to_index, except: [:index, :show, :search]
 
   def index
-    @ideas=Idea.order('created_at DESC')
-    @recruits=Recruit.order('created_at DESC')
+    @ideas=Idea.order('created_at ASC')
+    @recruits=Recruit.order('created_at ASC')
   end
 
   def new
@@ -21,6 +21,8 @@ class IdeasController < ApplicationController
   end
 
   def show
+    @like = Like.new
+    @dislike = Dislike.new
   end
 
   def edit

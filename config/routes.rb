@@ -9,6 +9,8 @@ Rails.application.routes.draw do
       get 'search'
     end
     resources :idea_purchases, only:[:index,:create]
+    resources :likes, only: :create
+    resources :dislikes, only: :create
   end
   resources :users, only: :show
   resources :recruits do

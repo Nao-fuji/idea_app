@@ -1,5 +1,5 @@
 <%= render "shared/header" %>
-
+<%= @idea.liked_users.count %>
   <%# アイデアの概要 %>
 <div class="idea-show">
   <div class="idea-box">
@@ -72,21 +72,16 @@
 
     <%# Good・Badボタン %>
     <% if @idea.idea_purchase.present?%>
-    <div class="option">
-      <div class="favorite-btn">
-        <%#= image_tag "#" ,class:"favorite-star-icon" ,width:"20",height:"20"%>
-        <span>Good</span>
+      <div class="option">
+        <div>
+          <%= button_to 'Good', idea_likes_path(@idea),class:"like-btn" %>
+        </div>
+        <div>
+          <%= button_to 'Bad', idea_dislikes_path(@idea),class:"dislike-btn" %>
+        </div>
       </div>
-      <div class="report-btn">
-        <%#= image_tag "#" ,class:"report-flag-icon" ,width:"20",height:"20"%>
-        <span>Bad</span>
-      </div>
-    </div>
     <% end %>
     <%# Good・Badボタン %>
-  </div>
-  <div class="idea-content-foot">
-    <a href="/" class="a">トップページに戻る</a>
   </div>
 </div>
 

@@ -21,6 +21,16 @@
           <div class="side-main-right2"><%= @tweets.length%></div>
         </div>
       </div>
+      <div class="goodbad-content">
+        <div class="good-button">
+          <div class="good-button1">Good</div>
+          <div class="good-button2"><%= @likes_count%></div>
+        </div>
+        <div class="bad-button">
+          <div class="bad-button1">Bad</div>
+          <div class="bad-button2"><%= @dislikes_count%></div>
+        </div>
+      </div>
       <div class="side-foot">
         <%= link_to "プロフィールを編集する", edit_user_registration_path, class: "user-edit-btn" %>
       </div>
@@ -43,6 +53,16 @@
         <div class="side-main-right">
           <div class="side-main-right1">募集の<br>アイデア</div>
           <div class="side-main-right2"><%= @tweets.length%></div>
+        </div>
+      </div>
+      <div class="goodbad-content">
+        <div class="good-button">
+          <div class="good-button1">Good</div>
+          <div class="good-button2"><%= @likes_count%></div>
+        </div>
+        <div class="bad-button">
+          <div class="bad-button1">Bad</div>
+          <div class="bad-button2"><%= @dislikes_count%></div>
         </div>
       </div>
     </div>
