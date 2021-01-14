@@ -6,7 +6,7 @@
 /* カレントユーザー */
 .side-bar{
   min-width: 320px;
-  height: 400px;
+  height: 470px;
   margin: 135px 20px ;
   padding: 20px;
   background-color: #ffffff;
@@ -63,7 +63,6 @@
   font-size: large;
 }
 
-
 .side-main-center{
   width: 70px;
   height: 100px;
@@ -92,12 +91,48 @@
   font-size: large;
 }
 
+.goodbad-content{
+  width: 100%;
+  height: 70px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.good-button{
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  padding-top: 5px;
+  border: 2px solid #FFA500;
+  border-radius: 40px;
+}
+
+.good-button2{
+  font-size: large;
+}
+
+.bad-button{
+  width: 100px;
+  height: 60px;
+  text-align: center;
+  padding-top: 5px;
+  border: 2px solid gray;
+  border-radius: 40px;
+}
+
+.bad-button2{
+  font-size: large;
+}
+
 .side-foot{
   width: 100%;
   height: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 5px;
 }
 
 .user-edit-btn{
@@ -124,7 +159,7 @@
 /* その他のユーザー */
 .side-bar1{
   width: 320px;
-  height: 320px;
+  height: 380px;
   margin: 135px 20px ;
   padding: 20px;
   background-color: #ffffff;

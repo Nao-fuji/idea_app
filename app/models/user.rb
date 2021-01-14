@@ -36,6 +36,10 @@ class User < ApplicationRecord
   has_many :tweets
   has_many :idea_purchases
   has_many :tweet_purchases
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :idea
+  has_many :dislikes
+  has_many :disliked_users, through: :dislikes, source: :idea
   has_one_attached :image
 
 end

@@ -5,6 +5,10 @@ class Idea < ApplicationRecord
   validates :category_id, presence: true, numericality: { other_than: 1 }
   
   belongs_to :user
+  has_many :likes
+  has_many :liked_users, through: :likes, source: :user
+  has_many :dislikes
+  has_many :disliked_users, through: :dislikes, source: :user
   has_one :idea_purchase
   has_one_attached :image
 
