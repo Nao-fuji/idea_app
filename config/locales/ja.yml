@@ -1,0 +1,31 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        nickname: ニックネーム
+        phone_number: 電話番号
+        first_name: 名前
+        last_name: 名字
+        first_name_kana: 名前カナ
+        last_name_kana: 名字カナ
+      idea:
+        title: アイデア名
+        idea: アイデアの内容
+        price: 価格
+        category_id: カテゴリー
+      recruit:
+        theme: テーマ
+        price: 価格
+        category_id: カテゴリー
+      tweet:
+        idea: アイデア
+        explain: 説明
+      idea_purchase:
+        token: クレジット情報
+      tweet_purchase:
+        token: クレジット情報
+        price: 価格
+        
+    errors:
+     messages:
+       other_than:  「--」以外を選択してください

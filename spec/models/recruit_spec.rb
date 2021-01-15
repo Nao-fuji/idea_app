@@ -16,17 +16,17 @@ RSpec.describe Recruit, type: :model do
       it 'themeが空のとき'do
         @recruit.theme = ''
         @recruit.valid?
-        expect(@recruit.errors.full_messages).to include("Theme can't be blank")    
+        expect(@recruit.errors.full_messages).to include("テーマを入力してください")
       end
       it 'priceが空のとき'do
         @recruit.price = ""
         @recruit.valid?
-        expect(@recruit.errors.full_messages).to include("Price can't be blank")
+        expect(@recruit.errors.full_messages).to include("価格を入力してください")
       end
       it 'category_idが選択されていないと出品できない' do
         @recruit.category_id = 1
         @recruit.valid?
-        expect(@recruit.errors.full_messages).to include('Category must be other than 1')
+        expect(@recruit.errors.full_messages).to include('カテゴリー「--」以外を選択してください')
       end
     end
   end

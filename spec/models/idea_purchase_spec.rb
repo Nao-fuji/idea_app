@@ -16,7 +16,7 @@ RSpec.describe IdeaPurchase, type: :model do
       it 'tokenが空のとき'do
         @idea_purchase.token = ''
         @idea_purchase.valid?
-        expect(@idea_purchase.errors.full_messages).to include("Token can't be blank")
+        expect(@idea_purchase.errors.full_messages).to include("クレジット情報を入力してください")
       end
     end
   end

@@ -16,12 +16,12 @@ RSpec.describe Tweet, type: :model do
       it 'ideaが空のとき' do
         @tweet.idea = ''
         @tweet.valid?
-        expect(@tweet.errors.full_messages).to include("Idea can't be blank")
+        expect(@tweet.errors.full_messages).to include("アイデアを入力してください")
       end
       it 'explainが空のとき' do
         @tweet.explain = ''
         @tweet.valid?
-        expect(@tweet.errors.full_messages).to include("Explain can't be blank")
+        expect(@tweet.errors.full_messages).to include("説明を入力してください")
       end
     end
   end
