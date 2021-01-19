@@ -1,4 +1,6 @@
 <%= render "shared/header" %>
+<% breadcrumb :user_show ,@user%>
+<%= breadcrumbs separator: " &rsaquo; " %>
 
 <div class="main1">
   <% if current_user.id == @user.id %>
