@@ -87,10 +87,18 @@
 }
 
 .img-upload {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 2vh 0;
+}
+
+.left-img-upload{
+  width: 65%;
+}
+.right-img-upload{
+  width: 35%;
 }
 
 .click-upload {
@@ -160,3 +168,9 @@
 }
 
 /* /下部ボタン */
+
+.preview {
+  height: 250px;
+  width: 250px;
+  object-fit: contain;
+}

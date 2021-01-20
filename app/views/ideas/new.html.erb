@@ -26,14 +26,19 @@
       </div>
       <%= f.text_area :idea, class:"ideas", id:"idea", placeholder:"アイデアの内容   （例）〜してくれるアプリ" %>
       <div class="img-upload">
-        <div class="weight-bold-text">
-          関連画像(関連する画像があれば添付してください)
+        <div class="left-img-upload">
+          <div class="weight-bold-text">
+            関連画像(関連する画像があれば添付してください)
+          </div>
+          <div class="click-upload">
+            <p>
+              クリックしてファイルをアップロード
+            </p>
+            <%= f.file_field :image, id:"idea-image" %>
+          </div>
         </div>
-        <div class="click-upload">
-          <p>
-            クリックしてファイルをアップロード
-          </p>
-          <%= f.file_field :image, id:"idea-image" %>
+        <div class="right-img-upload">
+          <div id="image-list"></div>
         </div>
       </div>
       <div class="ideas-explain">
