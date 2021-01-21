@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   def update_without_current_password(params, *options)
     params.delete(:current_password)
 
@@ -17,9 +17,9 @@ class User < ApplicationRecord
     result
   end
 
-  validates :nickname, :email,presence: true
+  validates :nickname, :email, presence: true
   validates :email, uniqueness: true
-  validates :phone_number, presence: true, length:{maximum: 11},format: {with:/\A[0-9]+\z/, message:'ハイフンは必要ありません'}
+  validates :phone_number, presence: true, length: { maximum: 11 }, format: { with: /\A[0-9]+\z/, message: 'ハイフンは必要ありません' }
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: '全角文字を使用してください' } do
     validates :first_name
     validates :last_name
@@ -39,5 +39,4 @@ class User < ApplicationRecord
   has_many :likes
   has_many :dislikes
   has_one_attached :image
-
 end
