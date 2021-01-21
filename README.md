@@ -22,7 +22,7 @@ url: https://idea-app-0301.herokuapp.com/
 
 ## DEMO
 ### 1.ホーム画面
-  ![image](https://user-images.githubusercontent.com/72326957/103554791-ce973400-4ef2-11eb-9999-d05decc5f8a3.png)
+  ![image](https://user-images.githubusercontent.com/72326957/105339013-90528200-5c1f-11eb-9ff1-71adca49d405.png)
 <br>
 <br>
 <br>
@@ -63,9 +63,12 @@ url: https://idea-app-0301.herokuapp.com/
 <br>
 <br>
 <br>
-### 8.マイページ
+### 8.ユーザーページ
 カレントユーザーは購入したアイデア、投稿したアイデア、アイデア募集が表示されており、別のユーザーにはそのユーザーのアイデア募集のみが表示されるように実装した。
-   ![image](https://user-images.githubusercontent.com/72326957/104121061-df2a2d00-537e-11eb-8def-cc5f7ab87adf.png)
+また、このアプリは購入してからでないと、アイデアの詳細が見られない機能にした。
+そこで、売る側ユーザーの評価を見られるようにすることで、買う側ユーザーの購入の決め手となるような機能が必要であったので、
+それを今回は商品に対してのいいね機能を利用して、ユーザー評価（Good or Bad）をつけるように実装した。
+   ![image](https://user-images.githubusercontent.com/72326957/105339032-96486300-5c1f-11eb-91ce-3875b8b01646.png)
 <br>
 <br>
 <br>  
