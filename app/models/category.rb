@@ -17,7 +17,7 @@ class Category < ActiveHash::Base
   ]
 
   def self.search(search)
-    if search != ""
+    if search != ''
       Category.where(id: 2)
     else
       Idea.all

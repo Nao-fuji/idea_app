@@ -6,22 +6,22 @@ RSpec.describe TweetPurchase, type: :model do
       @tweet_purchase = FactoryBot.build(:tweet_purchase)
     end
 
-    describe '募集に対するアイデアが購入できるとき'do
-      it 'token, priceが存在する時'do
+    describe '募集に対するアイデアが購入できるとき' do
+      it 'token, priceが存在する時' do
         expect(@tweet_purchase).to be_valid
       end
     end
 
-    describe '募集に対するアイデアが購入できないとき'do
-      it 'tokenが空のとき'do
-        @tweet_purchase.token =""
+    describe '募集に対するアイデアが購入できないとき' do
+      it 'tokenが空のとき' do
+        @tweet_purchase.token = ''
         @tweet_purchase.valid?
-        expect(@tweet_purchase.errors.full_messages).to include("クレジット情報を入力してください")
+        expect(@tweet_purchase.errors.full_messages).to include('クレジット情報を入力してください')
       end
-      it 'priceが空のとき'do
-        @tweet_purchase.price =""
+      it 'priceが空のとき' do
+        @tweet_purchase.price = ''
         @tweet_purchase.valid?
-        expect(@tweet_purchase.errors.full_messages).to include("価格を入力してください", "価格の範囲は¥50~¥10000の間で設定してください")
+        expect(@tweet_purchase.errors.full_messages).to include('価格を入力してください', '価格の範囲は¥50~¥10000の間で設定してください')
       end
       it 'priceが¥50未満の時出品できない' do
         @tweet_purchase.price = '49'
