@@ -4,6 +4,38 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   before_action :configure_account_update_params, only: [:update]
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    @user = User.new(sign_up_params)
+    render :new and return unless @user.valid?
+
+    session['devise.regist_data'] = { user: @user.attributes }
+    session['devise.regist_data'][:user]['password'] = params[:user][:password]
+    @identification = @user.build_identification
+    render :new_identification
+  end
+
+  def create_identification
+    @user = User.new(session['devise.regist_data']['user'])
+    @identification = Identification.new(identification_params)
+    render :new_identification and return unless @identification.valid?
+
+    @user.build_identification(@identification.attributes)
+    @user.save
+    session['devise.regist_data']['user'].clear
+    sign_in(:user, @user)
+
+    redirect_to root_path
+  end
+
+  private
+
+  def identification_params
+    params.require(:identification).permit(:last_name, :last_name_kana, :first_name, :first_name_kana, :phone_number)
+  end
   # GET /resource/sign_up
   # def new
   #   super
@@ -45,7 +77,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :email, :image, :phone_number])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:nickname, :email, :image])
   end
 
   # If you have extra params to permit, append them to the sanitizer.
