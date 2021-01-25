@@ -64,51 +64,6 @@ RSpec.describe User, type: :model do
           @user.valid?
           expect(@user.errors.full_messages).to include('パスワードには英字と数字の両方を含めて設定してください')
         end
-        it 'last_nameが空だと登録できない' do
-          @user.last_name = ''
-          @user.valid?
-          expect(@user.errors.full_messages).to include('名字を入力してください', '名字全角文字を使用してください')
-        end
-        it 'last_nameが全角（漢字、ひらがな、カタカナ）で入力されていないと登録できない' do
-          @user.last_name = 'abc'
-          @user.valid?
-          expect(@user.errors.full_messages).to include('名字全角文字を使用してください')
-        end
-        it 'first_nameが空だと登録できない' do
-          @user.first_name = ''
-          @user.valid?
-          expect(@user.errors.full_messages).to include('名前を入力してください', '名前全角文字を使用してください')
-        end
-        it 'first_nameが全角（漢字、ひらがな、カタカナ）で入力されていないと登録できない' do
-          @user.first_name = 'abc'
-          @user.valid?
-          expect(@user.errors.full_messages).to include('名前全角文字を使用してください')
-        end
-        it 'last_name_kanaが空だと登録できない' do
-          @user.last_name_kana = ''
-          @user.valid?
-          expect(@user.errors.full_messages).to include('名字カナを入力してください', '名字カナ全角カナを使用してください')
-        end
-        it 'last_name_kanaが全角（カタカナ）で入力されていないと登録できない' do
-          @user.last_name_kana = 'abc'
-          @user.valid?
-          expect(@user.errors.full_messages).to include('名字カナ全角カナを使用してください')
-        end
-        it 'first_name_kanaが空だと登録できない' do
-          @user.first_name_kana = ''
-          @user.valid?
-          expect(@user.errors.full_messages).to include('名前カナを入力してください', '名前カナ全角カナを使用してください')
-        end
-        it 'first_name_kanaが全角（カタカナ）で入力されていないと登録できない' do
-          @user.first_name_kana = 'abc'
-          @user.valid?
-          expect(@user.errors.full_messages).to include('名前カナ全角カナを使用してください')
-        end
-        it 'phone_numberが空だと登録できない' do
-          @user.phone_number = ''
-          @user.valid?
-          expect(@user.errors.full_messages).to include('電話番号を入力してください', '電話番号ハイフンは必要ありません')
-        end
       end
     end
   end
