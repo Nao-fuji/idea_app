@@ -3,6 +3,7 @@ ja:
     attributes:
       user:
         nickname: ニックネーム
+      identification:
         phone_number: 電話番号
         first_name: 名前
         last_name: 名字
