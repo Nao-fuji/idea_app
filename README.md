@@ -79,10 +79,14 @@ url: https://idea-app-0301.herokuapp.com/
 <br>
 <br>   
 ### 10.ユーザー新規登録ページ
-登録内容はニックネーム、Eメール、ログイン時のパスワード、ユーザーアイコン、電話番号、本人確認用のフルネーム（カナを含む）
+登録内容はニックネーム、Eメール、ログイン時のパスワード、ユーザーアイコン、電話番号、本人確認用のフルネーム（カナを含む）<br>
 ユーザーに使いやすくするためにウィザード形式（ユーザー情報登録と本人確認情報登録）で登録するように実装した。
+<br>
+<br>
 **ユーザー情報登録画面**
    ![image](https://user-images.githubusercontent.com/72326957/105786303-212eb200-5fc0-11eb-8ce0-37c788a3e86f.png)
+<br>
+<br>
 **本人確認情報登録画面**
    ![image](https://user-images.githubusercontent.com/72326957/105786308-2429a280-5fc0-11eb-9503-26db50209341.png)
 <br>
@@ -118,11 +122,6 @@ VSCode（Visual Studio Code）
 | nickname           | string  | null: false |
 | email              | string  | null: false |
 | password           | string  | null: false |
-| last_name          | string  | null: false |
-| first_name         | string  | null: false |
-| last_name_kana     | string  | null: false |
-| first_name_kana    | string  | null: false |
-| phone_number       | string  | null: false |
 
 
 ### Association
