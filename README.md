@@ -80,7 +80,11 @@ url: https://idea-app-0301.herokuapp.com/
 <br>   
 ### 10.ユーザー新規登録ページ
 登録内容はニックネーム、Eメール、ログイン時のパスワード、ユーザーアイコン、電話番号、本人確認用のフルネーム（カナを含む）
-   ![image](https://user-images.githubusercontent.com/72326957/103556288-e5d72100-4ef4-11eb-8712-c50be8ee24a3.png)
+ユーザーに使いやすくするためにウィザード形式（ユーザー情報登録と本人確認情報登録）で登録するように実装した。
+**ユーザー情報登録画面**
+   ![image](https://user-images.githubusercontent.com/72326957/105786303-212eb200-5fc0-11eb-8ce0-37c788a3e86f.png)
+**本人確認情報登録画面**
+   ![image](https://user-images.githubusercontent.com/72326957/105786308-2429a280-5fc0-11eb-9503-26db50209341.png)
 <br>
 <br>
 ## 工夫したポイント
@@ -90,7 +94,7 @@ url: https://idea-app-0301.herokuapp.com/
 Ruby on Rails
 <br>
 #### フロントエンド
-JavaScript
+html, css, JavaScript
 <br>
 #### ソース管理
 GitHub,GitHubDesktop
@@ -102,8 +106,7 @@ RSpec
 VSCode（Visual Studio Code）
     
 ## 今後実装したい機能
-・画像のポップアップ表示機能<br>
-・Good,Badなどの評価機能
+・画像のポップアップ表示機能
 
     
 # テーブル設計
@@ -129,6 +132,25 @@ VSCode（Visual Studio Code）
 - has_many :recruits
 - has_many :tweets
 - has_many :tweet_purchases
+- has_one  :identification
+
+
+
+## identification テーブル
+
+| Column             | Type       | Options     |
+| ------------------ | ---------- | ----------- |
+| last_name          | string     | null: false |
+| first_name         | string     | null: false |
+| last_name_kana     | string     | null: false |
+| first_name_kana    | string     | null: false |
+| phone_number       | string     | null: false |
+| user               | references |             |
+
+
+### Association
+
+- belongs_to :user
 
 
 
