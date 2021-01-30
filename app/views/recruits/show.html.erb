@@ -86,7 +86,10 @@
           <div class="tweet-right">
             <div class='idea-img-content'>
               <% if tweet.image.present?%>
-                  <%= image_tag tweet.image ,class:"tweet-img" %>
+                  <%= link_to tweet.image, "data-lightbox" => tweet.image do %>
+                    <%= image_tag tweet.image,class:"tweet-img"%>
+                  <% end %>
+
               <% else %>
                 <%= image_tag "idea_noimage" ,class:"tweet-img" %>
               <% end %>
