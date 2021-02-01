@@ -110,7 +110,7 @@ RSpec
 VSCode（Visual Studio Code）
     
 ## 今後実装したい機能
-・画像のポップアップ表示機能
+
 
     
 # テーブル設計
