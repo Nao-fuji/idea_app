@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+         :recoverable, :rememberable, :validatable, :omniauthable, :omniauth_providers: [:google_oauth2]
 
   def update_without_current_password(params, *options)
     params.delete(:current_password)
@@ -31,4 +31,5 @@ class User < ApplicationRecord
   has_many :dislikes
   has_one_attached :image
   has_one :identification
+  has_many :sns_credentials
 end
