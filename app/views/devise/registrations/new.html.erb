@@ -1,6 +1,6 @@
 <%= render "shared/second-header"%>
 
-<%= link_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, method: :post%>
+
 
 <%= form_with model: @user, url: user_registration_path, class: 'registration-main', local: true do |f| %>
 
@@ -10,9 +10,10 @@
       会員情報入力
     </h1>
   </div>
-
   <%= render 'shared/error_messages', model: f.object %>
-  
+  <div class="form-group">
+    <%= link_to "Googleアカウントで登録", user_google_oauth2_omniauth_authorize_path, class: 'google',method: :post%>
+  </div>
   <div class="form-group">
     <div class='form-text-wrap'>
       <label class="form-text">ニックネーム</label>

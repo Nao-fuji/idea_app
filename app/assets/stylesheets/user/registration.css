@@ -136,3 +136,22 @@
   width: 40%;
   margin: 40px auto;
 }
+
+.google{
+  display: block;
+	position: relative;
+	width: 300px;
+	padding: 0.8em;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	background: #3366FF;
+  border:1px solid #3366FF
+}
+
+.google:hover {
+  background-color: #3333FF;
+  color: #fff;
+  cursor: pointer;
+  text-decoration: none;
+}
