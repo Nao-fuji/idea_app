@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Identification, type: :model do
   describe 'create' do
     before do
-      @identification = FactoryBot.build(:identification)  
+      @identification = FactoryBot.build(:identification)
     end
 
     describe 'ユーザー新規登録' do

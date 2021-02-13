@@ -9,8 +9,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   def create
+    if params[:sns_auth] == 'true'
+      pass = Devise.friendly_token
+      params[:user][:password] = pass
+      params[:user][:password_confirmation] = pass
+    end
     @user = User.new(sign_up_params)
     render :new and return unless @user.valid?
+
     session['devise.regist_data'] = { user: @user.attributes }
     session['devise.regist_data'][:user]['password'] = params[:user][:password]
     @identification = @user.build_identification
@@ -21,6 +27,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     @user = User.new(session['devise.regist_data']['user'])
     @identification = Identification.new(identification_params)
     render :new_identification and return unless @identification.valid?
+
     @user.build_identification(@identification.attributes)
     @user.save
     session['devise.regist_data']['user'].clear
@@ -29,6 +36,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
   private
+
   def identification_params
     params.require(:identification).permit(:last_name, :last_name_kana, :first_name, :first_name_kana, :phone_number)
   end
@@ -67,6 +75,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   protected
+
   def update_resource(resource, params)
     resource.update_without_current_password(params)
   end
